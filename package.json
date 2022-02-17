@@ -1,0 +1,24 @@
+{
+  "name": "impact-certs",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "dev": "yarn workspace impact-certs-next dev",
+    "compile": "yarn workspace impact-certs-hardhat compile",
+    "chain": "yarn workspace impact-certs-hardhat chain",
+    "test": "yarn workspace impact-certs-hardhat test"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/hardhat",
+      "**/hardhat/**"
+    ]
+  }
+}
