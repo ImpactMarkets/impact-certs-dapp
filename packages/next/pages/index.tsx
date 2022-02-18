@@ -16,7 +16,7 @@ const Home: NextPage = () => {
   const renderContent = () => {
     if (loading) return <Loader size={8} />;
 
-    return ( <ImpactCertGrid></ImpactCertGrid>)
+    return ( <ImpactCertGrid />)
   };
 
   return (
