@@ -18,17 +18,28 @@ const Home: NextPage = () => {
   const provider = useProvider();
 
   const loading = false;
+  
+  const [filter, setFilter] = useState('');
+  const passFilter = (filter) => {
+    setFilter(filter);
+  }
 
   const renderContent = () => {
     if (loading) return <Loader size={8} />;
     return (
       <div>
         <div className="filter_container">
-          <Select className="filter" width={240}>
+          <Select
+            className="filter"
+            width={240}
+            onChange={(event) => passFilter(event.target.value)}
+          >
             <option value="all" selected>
               All
             </option>
-            <option value="Artificial Intelligence">Artificial Intelligence</option>
+            <option value="Artificial Intelligence">
+              Artificial Intelligence
+            </option>
             <option value="Animal Welfare">Animal Welfare</option>
             <option value="Biorisk">Biorisk</option>
             <option value="Climate Change">Climate Change</option>
@@ -41,7 +52,7 @@ const Home: NextPage = () => {
           </Select>
         </div>
         <div>
-          <ImpactCertGrid />
+          <ImpactCertGrid filter={...passFilter} />
         </div>
       </div>
     );

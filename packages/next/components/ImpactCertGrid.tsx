@@ -9,6 +9,7 @@ import { ImpactCertCard } from "../components";
 
 interface Props {
   children?: string | JSX.Element;
+  filter: string;
 }
 
 interface ImpactCert {
