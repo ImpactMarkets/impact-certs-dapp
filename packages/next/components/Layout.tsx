@@ -75,8 +75,8 @@ export default function Layout(props: Props) {
   return (
     <div>
       <Head>
-        <title>NextJS wagmi</title>
-        <meta name="description" content="NextJS and wagmi template" />
+        <title>Impact Certificates</title>
+        <meta name="description" content="Impact Certificates" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -85,11 +85,11 @@ export default function Layout(props: Props) {
         setOpen={setShowWalletOptions}
       />
 
-      <div className="absolute w-screen bg-gradient-to-r from-black to-white">
+      <div>
         <div className="flex items-center justify-between p-4">
           <div className="flex items-center">
-            <h4 className="text-2xl font-bold text-white cursor-default">
-              NextJS wagmi
+            <h4 className="text-2xl font-bold text-black cursor-default">
+              Impact Certs
             </h4>
           </div>
           {renderButton()}
