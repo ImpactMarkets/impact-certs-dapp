@@ -1,15 +1,13 @@
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import type { NextPage } from "next";
 import { useAccount, useBalance, useProvider } from "wagmi";
 import {
-  Button,
   Layout,
   Loader,
   WalletOptionsModal,
-  ImpactCertCard,
 } from "../components";
 import ImpactCertGrid from "@/components/ImpactCertGrid";
-import { Select, option } from "evergreen-ui";
+import { Select } from "evergreen-ui";
 
 const Home: NextPage = () => {
   const [showWalletOptions, setShowWalletOptions] = useState(false);
@@ -19,20 +17,17 @@ const Home: NextPage = () => {
 
   const loading = false;
   
-  const [filter, setFilter] = useState('');
-  const passFilter = (filter) => {
-    setFilter(filter);
-  }
+  const [filter, setFilter] = useState("all");
 
   const renderContent = () => {
     if (loading) return <Loader size={8} />;
     return (
-      <div>
+      <Fragment>
         <div className="filter_container">
           <Select
             className="filter"
             width={240}
-            onChange={(event) => passFilter(event.target.value)}
+            onChange={(event) => setFilter(event.target.value)}
           >
             <option value="all" selected>
               All
@@ -52,14 +47,14 @@ const Home: NextPage = () => {
           </Select>
         </div>
         <div>
-          <ImpactCertGrid filter={...passFilter} />
+          <ImpactCertGrid filter={filter} />
         </div>
-      </div>
+      </Fragment>
     );
   };
 
   return (
-    <>
+    <Fragment>
       <WalletOptionsModal
         open={showWalletOptions}
         setOpen={setShowWalletOptions}
@@ -72,7 +67,7 @@ const Home: NextPage = () => {
           <div className="grid place-items-center">{renderContent()}</div>
         </div>
       </Layout>
-    </>
+    </Fragment>
   );
 };
 

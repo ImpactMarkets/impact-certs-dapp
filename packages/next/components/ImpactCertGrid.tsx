@@ -25,7 +25,7 @@ const ipfsAddr = (ipfs: string) => {
   return `https://ipfs.io/ipfs/${ipfs.substring(7)}`;
 };
 
-export default function ImpactCertGrid(props: Props) {
+export default function ImpactCertGrid({ filter }: Props) {
   const provider = useProvider();
   const [{ data, error, loading }, switchNetwork] = useNetwork();
   const contract = useContract({
@@ -67,7 +67,7 @@ export default function ImpactCertGrid(props: Props) {
           {loading ? (
             <h1>Loading</h1>
           ) : (
-            NFTs.map((cert, index) =>
+            NFTs.filter((cert) => filter == "all" || cert.tags?.indexOf(filter) >= 0).map((cert, index) =>
               cert ? (
                 <ImpactCertCard
                   image={ipfsAddr(cert.image)}
