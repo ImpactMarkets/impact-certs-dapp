@@ -1,10 +1,18 @@
-.filter_container{
-    width: 95%;
-    margin: auto;
+
+.filter {
+  margin: 20px;
 }
 
-.filter{
-    margin: 20px;
+.approved {
+  text-align: left;
+  font-size: 1.3rem;
+}
+
+.header_container{
+  display: flex;
+  width: 95%;
+  margin: auto;
+  align-items: center;
 }
 
 .cert_img {
