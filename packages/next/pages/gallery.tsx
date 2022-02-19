@@ -9,7 +9,7 @@ import {
 import ImpactCertGrid from "@/components/ImpactCertGrid";
 import { Select } from "evergreen-ui";
 
-const Home: NextPage = () => {
+const Gallery: NextPage = () => {
   const [showWalletOptions, setShowWalletOptions] = useState(false);
   const [NFTs, setNFTs] = useState([]);
 
@@ -71,4 +71,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Gallery;

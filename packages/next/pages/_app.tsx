@@ -1,5 +1,8 @@
 import "../styles/globals.css";
 import "../styles/ImpactCertCard.css";
+import "../styles/Menu.css";
+import "../styles/Mint.css";
+import "../styles/main.css";
 import type { AppProps } from "next/app";
 import { Provider, defaultChains } from "wagmi";
 import { providers } from "ethers";
