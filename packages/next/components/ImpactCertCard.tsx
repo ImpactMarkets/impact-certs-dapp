@@ -25,8 +25,6 @@ export default function ImpactCertCard({
       elevation={3}
       padding={20}
       margin={20}
-      width={400}
-      height={400}
       textAlign="center"
       borderRadius={15}
       className="cert_card"

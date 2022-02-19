@@ -9,6 +9,7 @@ import {
   ImpactCertCard,
 } from "../components";
 import ImpactCertGrid from "@/components/ImpactCertGrid";
+import { Select, option } from "evergreen-ui";
 
 const Home: NextPage = () => {
   const [showWalletOptions, setShowWalletOptions] = useState(false);
@@ -22,7 +23,26 @@ const Home: NextPage = () => {
     if (loading) return <Loader size={8} />;
     return (
       <div>
-        <ImpactCertGrid />
+        <div className="filter_container">
+          <Select className="filter" width={240}>
+            <option value="all" selected>
+              All
+            </option>
+            <option value="Artificial Intelligence">Artificial Intelligence</option>
+            <option value="Animal Welfare">Animal Welfare</option>
+            <option value="Biorisk">Biorisk</option>
+            <option value="Climate Change">Climate Change</option>
+            <option value="Democracy">Democracy</option>
+            <option value="Effective Altruism">Effective Altruism</option>
+            <option value="Longevity">Longevity</option>
+            <option value="Open-source Software">Open-source Software</option>
+            <option value="War">War</option>
+            <option value="Web3">Web3</option>
+          </Select>
+        </div>
+        <div>
+          <ImpactCertGrid />
+        </div>
       </div>
     );
   };

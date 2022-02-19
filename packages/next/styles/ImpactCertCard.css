@@ -1,3 +1,12 @@
+.filter_container{
+    width: 95%;
+    margin: auto;
+}
+
+.filter{
+    margin: 20px;
+}
+
 .cert_img {
   width: 200px;
   height: auto;
