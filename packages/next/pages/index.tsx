@@ -60,8 +60,8 @@ const Home: NextPage = () => {
                 <div className="explainer_card">
                   <img src="/telescope.png" alt="telescope" />
                   <div>
-                    It's easy to tell if an action{" "}
-                    <span className="blue">was good</span>. It's hard to tell if
+                    It&apos;s easy to tell if an action{" "}
+                    <span className="blue">was good</span>. It&apos;s hard to tell if
                     an action <span className="blue">will be good.</span>
                   </div>
                 </div>
@@ -71,13 +71,13 @@ const Home: NextPage = () => {
                 </div>
                 <div className="explainer_card">
                   <img src="/rocket.png" alt="rocket" />
-                  We're creating a profitable market for impact certificates to
+                  We&apos;re creating a profitable market for impact certificates to
                   solve the hard problem.
                 </div>
               </div>
             </div>
             <div className="step_back">
-              <div className="header">Let's take a step back</div>
+              <div className="header">Let&apos;s take a step back</div>
               <div className="step_back_details">
                 <p>
                   We want to solve the biggest problems. Climate change, nuclear
@@ -92,7 +92,7 @@ const Home: NextPage = () => {
                   , etc.
                 </p>
                 <p>
-                  But it's currently hard to make money funding or working on
+                  But it&apos;s currently hard to make money funding or working on
                   these problems. The solutions to these problems are{" "}
                   <a
                     target="_blank"

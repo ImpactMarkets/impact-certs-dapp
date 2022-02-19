@@ -33,7 +33,6 @@ const Minter: NextPage = () => {
               <div>
                 <textarea
                   id="nft_desc"
-                  type="text"
                   rows={4}
                   cols={30}
                 ></textarea>
@@ -46,7 +45,6 @@ const Minter: NextPage = () => {
               <div className="date_button_flex">
                 <div>
                   <input
-                    onClick="displayDateOne()"
                     className="date_button"
                     type="button"
                     id="one_date"
@@ -56,7 +54,6 @@ const Minter: NextPage = () => {
                 </div>
                 <div>
                   <input
-                    onClick="displayDateTwo()"
                     className="date_button"
                     type="button"
                     id="two_dates"
@@ -66,7 +63,6 @@ const Minter: NextPage = () => {
                 </div>
                 <div>
                   <input
-                    onClick="hideDates()"
                     className="date_button"
                     type="button"
                     id="hide_dates"
@@ -98,12 +94,12 @@ const Minter: NextPage = () => {
                   <option value="War" />
                   <option value="Web3" />
                 </datalist>
-                <div onClick="addTag()" className="submit_tag" id="submit_tag">
+                <div className="submit_tag" id="submit_tag">
                   + Add
                 </div>
               </div>
               <div id="tag_preview"></div>
-              <div onClick="clearTags()" className="clear_tags" id="clear_tags">
+              <div className="clear_tags" id="clear_tags">
                 Clear Tags
               </div>
               <div className="input_title">External URL (proof or context)</div>
