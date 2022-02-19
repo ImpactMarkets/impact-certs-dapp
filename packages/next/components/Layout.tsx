@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ReactNode } from "react";
 import { Button, MenuDropdown, WalletOptionsModal } from ".";
 import { useAccount } from "wagmi";
+import Link from "next/link";
 
 interface Props {
   children: ReactNode;
@@ -87,10 +88,19 @@ export default function Layout(props: Props) {
 
       <div>
         <div className="flex items-center justify-between p-4">
-          <div className="flex items-center">
-            <h4 className="text-2xl font-bold text-black cursor-default">
-              Impact Certs
-            </h4>
+          <div className="menu flex items-center">
+            <Link href="../">
+              <a>Home</a>
+            </Link>
+            <Link href="/mint">
+              <a>Mint</a>
+            </Link>
+            <Link href="/gallery">
+              <a>Gallery</a>
+            </Link>
+            <Link href="/auction">
+              <a>Auction</a>
+            </Link>
           </div>
           {renderButton()}
         </div>
