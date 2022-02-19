@@ -1,5 +1,6 @@
 import { Card } from "evergreen-ui";
 import Image from "next/image";
+import approved_list from "../public/approved_cert_list";
 interface Props {
   children?: string | JSX.Element;
   image: string;
@@ -11,8 +12,6 @@ interface Props {
   attributes: string;
 }
 
-const approved_list = [0, 2];
-
 export default function ImpactCertCard({
   image,
   id,
@@ -22,7 +21,6 @@ export default function ImpactCertCard({
   tags,
   attributes,
 }: Props) {
-  console.log("cert id", id);
   return (
     <Card
       elevation={3}
@@ -33,7 +31,7 @@ export default function ImpactCertCard({
       className="cert_card"
     >
       <div>
-        {approved_list.includes(id) && <div className="approved">👌</div>}
+        {approved_list.approved_list.includes(id) && <div className="approved">👌</div>}
         {image ? (
           <Image
             className="cert_img"

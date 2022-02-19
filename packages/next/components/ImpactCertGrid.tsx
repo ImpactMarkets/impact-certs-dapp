@@ -6,7 +6,7 @@ import minterABI from "../abis/minter.json";
 import { Pane } from "evergreen-ui";
 import { MdTextRotationAngledown } from "react-icons/md";
 import { ImpactCertCard } from "../components";
-
+import approved_list from "../public/approved_cert_list";
 interface Props {
   children?: string | JSX.Element;
   filter: string;
@@ -38,8 +38,6 @@ export default function ImpactCertGrid({ filter, approvedOnly }: Props) {
   const [supply, setSupply] = useState(undefined);
   const [NFTs, setNFTs] = useState<ImpactCert[]>([]);
   const [loadingNFTs, setLoadingNFTs] = useState(false);
-
-  const approved_list = [0, 2];
 
   const fetchNFTs = async () => {
     console.log(data);
@@ -75,7 +73,7 @@ export default function ImpactCertGrid({ filter, approvedOnly }: Props) {
             NFTs.filter(
               (cert) => 
               (filter == "all" || cert.tags?.indexOf(filter) >= 0)
-              && (approvedOnly == false || approved_list.includes(cert?.id))
+              && (approvedOnly == false || approved_list.approved_list.includes(cert?.id))
               ).map((cert, index) =>
               cert ? (
                 <ImpactCertCard
