@@ -22,30 +22,7 @@ const Home: NextPage = () => {
     if (loading) return <Loader size={8} />;
     return (
       <div>
-        <ImpactCertCard
-          image="image_url"
-          id="0"
-          title="Test Impact Cert Title"
-          address="0x98Cf755EC5d9b4e1B9189e78F4134042bcbe44e6"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur placerat, lorem vitae pretium pellentesque, metus mauris dictum arcu, eget facilisis ex urna sed risus. Ut eleifend efficitur velit, ut mattis urna auctor sed. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras congue porttitor arcu et venenatis. Morbi orci lectus, tristique quis ipsum sit amet, rutrum malesuada nibh. Nulla lacinia urna at mi sollicitudin blandit."
-          attributes="random"
-        />
-        <ImpactCertCard
-          image="image_url"
-          id="0"
-          title="Test Impact Cert Title"
-          address="0x98Cf755EC5d9b4e1B9189e78F4134042bcbe44e6"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur placerat, lorem vitae pretium pellentesque, metus mauris dictum arcu, eget facilisis ex urna sed risus. Ut eleifend efficitur velit, ut mattis urna auctor sed. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras congue porttitor arcu et venenatis. Morbi orci lectus, tristique quis ipsum sit amet, rutrum malesuada nibh. Nulla lacinia urna at mi sollicitudin blandit."
-          attributes="random"
-        />
-        <ImpactCertCard
-          image="image_url"
-          id="0"
-          title="Test Impact Cert Title"
-          address="0x98Cf755EC5d9b4e1B9189e78F4134042bcbe44e6"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur placerat, lorem vitae pretium pellentesque, metus mauris dictum arcu, eget facilisis ex urna sed risus. Ut eleifend efficitur velit, ut mattis urna auctor sed. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras congue porttitor arcu et venenatis. Morbi orci lectus, tristique quis ipsum sit amet, rutrum malesuada nibh. Nulla lacinia urna at mi sollicitudin blandit."
-          attributes="random"
-        />
+        <ImpactCertGrid />
       </div>
     );
   };

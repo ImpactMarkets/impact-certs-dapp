@@ -1,29 +1,49 @@
-.cert_img{
-    width: 200px;
-    height: auto;
-    margin: auto;
+.cert_img {
+  width: 200px;
+  height: auto;
+  margin: auto;
 }
 
-.cert_title{
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 1.3rem   ;
+.cert_title {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1.3rem;
 }
 
-.cert_owner{
-    font-size: .9rem;
-    color: rgb(34, 34, 34);
+.cert_owner {
+  font-size: 0.8rem;
+  color: rgb(59, 59, 59);
 }
 
-.cert_description{
-    margin-top: 10px;
+.cert_description {
+  margin-top: 10px;
 }
 
-.cert_card{
-    transition: .3s;
+.cert_card {
+  transition: 0.3s;
 }
 
-.cert_card:hover{
-    box-shadow: 0 0 1px rgb(67 90 111 / 50%), 0 8px 10px -4px rgb(67 90 111 / 77%);
-    cursor: pointer;
+.cert_card:hover {
+  box-shadow: 0 0 1px rgb(67 90 111 / 50%), 0 8px 10px -4px rgb(67 90 111 / 77%);
+  cursor: pointer;
+}
+
+.cert_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 95%;
+  margin: auto;
+}
+
+.cert_tags {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: rgb(59, 59, 59);
+  font-style: italic;
+}
+
+@media only screen and (max-width: 1439px) {
+  .cert_grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
