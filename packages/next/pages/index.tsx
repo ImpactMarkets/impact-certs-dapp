@@ -185,7 +185,7 @@ const Home: NextPage = () => {
                   Buyers who want to buy and hold certificates to influence
                   smaller actors in the market via demand. Speculators would
                   only want to buy impact certificates that are likely to be
-                  bought by these impact-aligned final buyers.
+                  bought by these impact-aligned final buyers. 
                 </p>
 
                 <p>
