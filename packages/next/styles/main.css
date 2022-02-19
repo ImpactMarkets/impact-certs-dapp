@@ -318,6 +318,10 @@
     margin: 40px 0 5px 0;
     justify-content: space-between;
   }
+
+  .full_width{
+      width: 100%;
+  }
   
   .menu a {
     text-decoration: none;
@@ -395,6 +399,10 @@
     margin: 0 0 40px 0;
     letter-spacing: 13px;
     text-align: center;
+  }
+
+  .discord_container{
+      width: 150px;
   }
   
   .discord_button {

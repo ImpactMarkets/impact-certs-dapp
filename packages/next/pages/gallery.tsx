@@ -64,7 +64,7 @@ const Gallery: NextPage = () => {
         setShowWalletOptions={setShowWalletOptions}
       >
         <div className="grid h-screen place-items-center">
-          <div className="grid place-items-center">{renderContent()}</div>
+          <div className="full_width">{renderContent()}</div>
         </div>
       </Layout>
     </Fragment>

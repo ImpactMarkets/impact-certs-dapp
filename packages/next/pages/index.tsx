@@ -2,6 +2,7 @@ import { useState, Fragment } from "react";
 import type { NextPage } from "next";
 import { useAccount, useBalance, useProvider } from "wagmi";
 import { Layout, Loader, WalletOptionsModal } from "../components";
+import Image from "next/image";
 
 const Home: NextPage = () => {
   const [showWalletOptions, setShowWalletOptions] = useState(false);
@@ -26,17 +27,26 @@ const Home: NextPage = () => {
               </div>
             </div>
             <div className="cta_flex">
-              <a href="https://t.me/+OUrehF7DNI9kZDcx" rel="noreferrer" target="_blank">
+              <a
+                href="https://t.me/+OUrehF7DNI9kZDcx"
+                rel="noreferrer"
+                target="_blank"
+              >
                 <img
                   className="discord_button"
-                  src="/img/telegram.png"
-                  alt="Discord Logo"
+                  src="/telegram.png"
+                  alt="Telegram Logo"
+                  width="150"
                 />
               </a>
-              <a href="https://discord.gg/7zMNNDSxWv" rel="noreferrer" target="_blank">
+              <a
+                href="https://discord.gg/7zMNNDSxWv"
+                rel="noreferrer"
+                target="_blank"
+              >
                 <img
                   className="discord_button"
-                  src="/img/discord_logo.png"
+                  src="/discord_logo.png"
                   alt="Discord Logo"
                 />
               </a>
@@ -48,7 +58,7 @@ const Home: NextPage = () => {
               <div className="header">What is this?</div>
               <div className="explainer_flex">
                 <div className="explainer_card">
-                  <img src="../public/telescope.png" alt="telescope" />
+                  <img src="/telescope.png" alt="telescope" />
                   <div>
                     It's easy to tell if an action{" "}
                     <span className="blue">was good</span>. It's hard to tell if
@@ -56,11 +66,11 @@ const Home: NextPage = () => {
                   </div>
                 </div>
                 <div className="explainer_card">
-                  <img src="../public/funding.png" alt="funding" />
+                  <img src="/funding.png" alt="funding" />
                   Retroactive funders solve the (comparatively) easy problem.
                 </div>
                 <div className="explainer_card">
-                  <img src="../public/rocket.png" alt="rocket" />
+                  <img src="/rocket.png" alt="rocket" />
                   We're creating a profitable market for impact certificates to
                   solve the hard problem.
                 </div>
@@ -73,7 +83,8 @@ const Home: NextPage = () => {
                   We want to solve the biggest problems. Climate change, nuclear
                   war, unaligned AI, pandemic risks, longevity,{" "}
                   <a
-                    target="_blank" rel="noreferrer"
+                    target="_blank"
+                    rel="noreferrer"
                     href="https://slatestarcodex.com/2014/07/30/meditations-on-moloch"
                   >
                     Moloch
@@ -84,7 +95,8 @@ const Home: NextPage = () => {
                   But it's currently hard to make money funding or working on
                   these problems. The solutions to these problems are{" "}
                   <a
-                    target="_blank" rel="noreferrer"
+                    target="_blank"
+                    rel="noreferrer"
                     href="https://en.wikipedia.org/wiki/Public_good_(economics)"
                   >
                     public goods
@@ -348,11 +360,11 @@ const Home: NextPage = () => {
         setOpen={setShowWalletOptions}
       />
       <Layout
-        showWalletOptions={showWalletOptions}
+        showWalletOptions={false}
         setShowWalletOptions={setShowWalletOptions}
       >
         <div className="grid h-screen place-items-center">
-          <div className="grid place-items-center">{renderContent()}</div>
+          <div className="full_width">{renderContent()}</div>
         </div>
       </Layout>
     </Fragment>
