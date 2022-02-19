@@ -34,6 +34,9 @@ contract RatchetAuction is Context, IERC721, IERC721Metadata, IERC721Receiver, E
 
     mapping(uint256 => uint256) public lastPrices; // The last price paid by the buyer
 
+    mapping(uint256 => address) public nftAddresses;
+    mapping(uint256 => uint256) public nftTokenIds;
+
     uint256 private _count = 0;
 
     // Token name
@@ -110,6 +113,8 @@ contract RatchetAuction is Context, IERC721, IERC721Metadata, IERC721Receiver, E
         auctionTokens[_count] = IERC20(auctionToken);
         lastPrices[_count] = minBid;
         initiators[_count] = _msgSender();
+        nftAddresses[_count] = _nft;
+        nftTokenIds[_count] = tokenId;
     }
 
     /**
@@ -157,9 +162,8 @@ contract RatchetAuction is Context, IERC721, IERC721Metadata, IERC721Receiver, E
      */
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
         require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
-
-        string memory baseURI = _baseURI();
-        return bytes(baseURI).length > 0 ? string(abi.encodePacked(baseURI, tokenId.toString())) : "";
+        IERC721Metadata nft = IERC721Metadata(nftAddresses[tokenId]);
+        return nft.tokenURI(nftTokenIds[tokenId]);
     }
 
     /**
