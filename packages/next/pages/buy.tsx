@@ -53,6 +53,7 @@ const BuyPage: NextPage = () => {
     setTxHash(bidTx.hash);
     const waitForBid = await wait({ hash: bidTx.hash });
     setBuying(false);
+    setTxHash('')
   };
   return (
     <Fragment>

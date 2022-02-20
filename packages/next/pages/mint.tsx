@@ -1,7 +1,7 @@
 import { useState, Fragment } from "react";
 import { NFTStorage } from "nft.storage";
 import type { NextPage } from "next";
-import { useContract, useNetwork, useSigner } from "wagmi";
+import { useContract, useNetwork, useSigner, useWaitForTransaction } from "wagmi";
 import { Layout, Loader, WalletOptionsModal } from "../components";
 import {
   Alert,
@@ -50,6 +50,7 @@ const Minter: NextPage = () => {
     switchNetwork,
   ] = useNetwork();
   const [{ data, error, loading: loadingSigner }, getSigner] = useSigner();
+  const [{ data: waitData, error: errorWait, loading }, wait] = useWaitForTransaction();
   if (networkData?.chain?.name != "Ropsten" && switchNetwork) {
     switchNetwork(3);
   }
@@ -70,6 +71,8 @@ const Minter: NextPage = () => {
     });
     const minted = await minter.safeMint(owner, ipfs_res.url);
     setTxHash(minted.hash);
+    await wait({ hash: minted.hash })
+    setTxHash('');
   };
 
   const renderContent = () => {
