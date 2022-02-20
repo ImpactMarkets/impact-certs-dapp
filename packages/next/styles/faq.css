@@ -47,6 +47,10 @@
   p > a {
     text-decoration: underline;
   }
+
+  .question_text p{
+    margin-bottom: 15px;
+  }
   
   button svg {
     height: 1em;

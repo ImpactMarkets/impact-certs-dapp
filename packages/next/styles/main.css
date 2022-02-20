@@ -486,4 +486,8 @@ a:visited {
     flex-direction: column;
     align-items: center;
   }
+
+  .discord_button{
+    margin-bottom: 25px;
+  }
 }
