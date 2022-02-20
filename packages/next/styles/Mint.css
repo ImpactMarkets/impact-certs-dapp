@@ -1,216 +1,214 @@
 .minter {
-    margin: 50px 0 60px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-image: linear-gradient(to bottom right, #bed2f1, #0466c8);
-    border-radius: 15px;
-    padding: 50px;
-    -webkit-box-shadow: 0px 9px 12px 6px #30303027;
-    box-shadow: 0px 9px 12px 6px #30303027;
-  }
+  margin: 50px 0 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(to bottom right, #bed2f1, #0466c8);
+  border-radius: 15px;
+  padding: 50px;
+  -webkit-box-shadow: 0px 9px 12px 6px #30303027;
+  box-shadow: 0px 9px 12px 6px #30303027;
+  max-width: 800px;
+}
 
-  .auction {
-    margin: 50px 0 60px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background-image: linear-gradient(to bottom right, #bed2f1, #0466c8);
-    border-radius: 15px;
-    padding: 50px;
-    -webkit-box-shadow: 0px 9px 12px 6px #30303027;
-    box-shadow: 0px 9px 12px 6px #30303027;
-  }
-  
-  #tag_preview {
-    display: none;
-    margin: 0 0 15px 0;
-  }
-  
-  #tag_list{
-    width: 100%;
-    display: block;
-    color: black;
-  }
-  
-  a {
-    color: black;
-  }
-  
-  a:visited {
-    color: black;
-  }
-  
-  .sub_header {
-    margin: 0 0 30px 0;
-    text-align: center;
-    font-size: 0.8rem;
-  }
-  
-  .input_title {
-    font-weight: 600;
-    font-size: 16px;
-    margin: 10px 0 4px 0;
-  }
-  
-  .minter_form {
-    max-width: 350px;
-    width: 95%;
-    margin: auto;
-  }
-  
-  input {
-    width: 100%;
-    background-color: rgb(255, 255, 255);
-    border-radius: 8px;
-    border: 1px solid rgb(229, 232, 235);
-    height: 40px;
-    padding: 0px 12px 0px 12px;
-    min-width: 0px;
-    box-sizing: border-box;
-  }
-  
-  textarea {
-    width: 100%;
-    background-color: rgb(255, 255, 255);
-    border-radius: 8px;
-    border: 1px solid rgb(229, 232, 235);
-    height: 40px;
-    padding: 10px 12px 0px 12px;
-    min-width: 0px;
-    box-sizing: border-box;
-  }
-  
-  .image_input {
-    border: none;
+.auction_button_container{
+  text-align: center;
+}
+
+.auction_explainer {
+  margin: 0 0 40px 0;
+}
+
+#tag_preview {
+  display: none;
+  margin: 0 0 15px 0;
+}
+
+#tag_list {
+  width: 100%;
+  display: block;
+  color: black;
+}
+
+a {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+.sub_header {
+  margin: 0 0 30px 0;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.input_title {
+  font-weight: 600;
+  font-size: 16px;
+  margin: 10px 0 4px 0;
+}
+
+.minter_form {
+  max-width: 350px;
+  width: 95%;
+  margin: auto;
+}
+
+input {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  border: 1px solid rgb(229, 232, 235);
+  height: 40px;
+  padding: 0px 12px 0px 12px;
+  min-width: 0px;
+  box-sizing: border-box;
+}
+
+textarea {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  border: 1px solid rgb(229, 232, 235);
+  height: 40px;
+  padding: 10px 12px 0px 12px;
+  min-width: 0px;
+  box-sizing: border-box;
+}
+
+.image_input {
+  border: none;
+  border-radius: 0px;
+  padding-left: 0px;
+  background-color: transparent;
+}
+
+button {
+  width: 250px;
+  max-width: 95%;
+}
+
+.date_button {
+  margin-right: 20px;
+}
+
+.date_button:hover {
+  background-color: white;
+  color: #0466c8;
+  border: 1px solid #0466c8;
+  cursor: pointer;
+}
+
+.date_button_flex {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.date_button_flex div {
+  max-width: 100px;
+  font-size: 0.8rem;
+}
+
+#date_1_div {
+  display: none;
+}
+
+#date_2_div {
+  display: none;
+}
+
+#hide_dates {
+  display: none;
+}
+
+input[type="file"]::file-selector-button {
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  border: 1px solid rgb(229, 232, 235);
+  height: 40px;
+  padding: 0px 12px 0px 12px;
+  min-width: 0px;
+  font-size: 0.8rem;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: white;
+  color: #0466c8;
+  border: 1px solid #0466c8;
+  cursor: pointer;
+}
+
+.mint {
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  border: 1px solid rgb(229, 232, 235);
+  height: 40px;
+  padding: 0px 12px 0px 12px;
+  min-width: 0px;
+  text-align: center;
+  align-self: center;
+}
+
+.mint:hover {
+  background-color: white;
+  color: #0466c8;
+  border: 1px solid #0466c8;
+  cursor: pointer;
+}
+
+.mint_button_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.tag_container {
+  display: flex;
+  align-items: center;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  background-color: white;
+}
+
+.submit_tag,
+.clear_tags {
+  display: flex;
+  background-color: white;
+  border-radius: 8px;
+  height: 30px;
+  padding: 0px 12px 0px 12px;
+  min-width: 0px;
+  margin-left: 5px;
+  width: 33%;
+  font-size: 0.8rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear_tags {
+  margin-left: 0px;
+  display: none;
+}
+
+.submit_tag:hover,
+.clear_tags:hover {
+  background-color: white;
+  color: #0466c8;
+  border: 1px solid #0466c8;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+  .minter {
+    padding: 10px;
     border-radius: 0px;
-    padding-left: 0px;
-    background-color: transparent;
   }
-  
-  button {
-    width: 250px;
-    max-width: 95%;
-  }
-  
-  .date_button {
-    margin-right: 20px;
-  }
-  
-  .date_button:hover {
-    background-color: white;
-    color: #0466c8;
-    border: 1px solid #0466c8;
-    cursor: pointer;
-  }
-  
-  .date_button_flex {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-  }
-  
-  .date_button_flex div {
-    max-width: 100px;
-    font-size: 0.8rem;
-  }
-  
-  #date_1_div {
-    display: none;
-  }
-  
-  #date_2_div {
-    display: none;
-  }
-  
-  #hide_dates {
-    display: none;
-  }
-  
-  input[type="file"]::file-selector-button {
-    background-color: rgb(255, 255, 255);
-    border-radius: 8px;
-    border: 1px solid rgb(229, 232, 235);
-    height: 40px;
-    padding: 0px 12px 0px 12px;
-    min-width: 0px;
-    font-size: 0.8rem;
-  }
-  
-  input[type="file"]::file-selector-button:hover {
-    background-color: white;
-    color: #0466c8;
-    border: 1px solid #0466c8;
-    cursor: pointer;
-  }
-  
-  .mint {
-    background-color: rgb(255, 255, 255);
-    border-radius: 8px;
-    border: 1px solid rgb(229, 232, 235);
-    height: 40px;
-    padding: 0px 12px 0px 12px;
-    min-width: 0px;
-    text-align: center;
-    align-self: center;
-  }
-  
-  .mint:hover {
-    background-color: white;
-    color: #0466c8;
-    border: 1px solid #0466c8;
-    cursor: pointer;
-  }
-  
-  .mint_button_container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .tag_container {
-    display: flex;
-    align-items: center;
-  }
-
-  button, [type='button'], [type='reset'], [type='submit']{
-    background-color: white;
-  }
-  
-  .submit_tag, .clear_tags {
-    display: flex;
-    background-color: white;
-    border-radius: 8px;
-    height: 30px;
-    padding: 0px 12px 0px 12px;
-    min-width: 0px;
-    margin-left: 5px;
-    width: 33%;
-    font-size: 0.8rem;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .clear_tags{
-   margin-left: 0px; 
-   display: none;
-  }
-  
-  .submit_tag:hover, .clear_tags:hover{
-    background-color: white;
-    color: #0466c8;
-    border: 1px solid #0466c8;
-    cursor: pointer;
-  }
-  
-  
-  
-  @media only screen and (max-width: 800px) {
-    .minter {
-      padding: 10px;
-      border-radius: 0px;
-    }
-  }
-  
+}

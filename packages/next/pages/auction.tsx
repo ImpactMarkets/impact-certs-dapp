@@ -77,8 +77,20 @@ const Auction: NextPage = () => {
   const renderContent = () => {
     return (
       <Fragment>
-        <div className="auction">
+        <div className="minter auction">
           <div className="header">Ratchet Auction</div>
+          <div className="auction_explainer">
+            This is an auction inspired by the Harberger Tax. Anyone can buy any
+            impact certificate that is placed into this auction as long as they
+            bid above the next minimum bid. The price always increases and bids
+            are automatically accepted.{" "}
+            <b>
+              Once locked into this auction the impact certificate can never be
+              removed and the auction is never stopped.
+            </b>{" "}
+            This allows the impact certificates to rise to the maximum value
+            someone is willing to pay.
+          </div>
           <div id="minter_form" className="minter_form">
             <TextInputField
               label="NFT Address"
@@ -128,9 +140,11 @@ const Auction: NextPage = () => {
               value={minBid}
               onChange={({ target }: any) => setMinBid(target.value)}
             />
-            <Button disabled={submit} onClick={startAuction}>
-              Submit Auction
-            </Button>
+            <div className="auction_button_container">
+              <Button disabled={submit} onClick={startAuction}>
+                Start Auction
+              </Button>
+            </div>
             {txHash && (
               <Alert intent="success" title="Your Auction is being created!">
                 View the transaction on{" "}
