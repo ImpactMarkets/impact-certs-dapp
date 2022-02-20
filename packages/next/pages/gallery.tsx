@@ -7,17 +7,11 @@ import { Checkbox, Select } from "evergreen-ui";
 
 const Gallery: NextPage = () => {
   const [showWalletOptions, setShowWalletOptions] = useState(false);
-  const [NFTs, setNFTs] = useState([]);
-
-  const provider = useProvider();
-
-  const loading = false;
 
   const [filter, setFilter] = useState("all");
   const [checked, setChecked] = useState(true);
 
   const renderContent = () => {
-    if (loading) return <Loader size={8} />;
     return (
       <Fragment>
         <div className="header_container">
