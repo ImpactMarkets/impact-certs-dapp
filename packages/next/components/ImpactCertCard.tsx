@@ -23,7 +23,7 @@ export default function ImpactCertCard({
   attributes,
 }: Props) {
   return (
-    <Link href={"/cert/"+id} passHref>
+    <Link href={"/cert/" + id} passHref>
       <Card
         elevation={3}
         padding={20}
@@ -34,10 +34,16 @@ export default function ImpactCertCard({
       >
         <div>
           {approved_list.approved_list.includes(id) ? (
-                <div className="approved">👌</div>
-              ) : (
-                <div className="approved">🤷‍♂️</div>
-              )}
+            <div className="approved_parent">
+              <div className="approved">👌</div>
+              <div className="helper">Approved by the core team!</div>
+            </div>
+          ) : (
+            <div className="approved_parent">
+              <div className="approved">🤷‍♂️</div>
+              <div className="helper">Could be good, could be worthless!</div>
+            </div>
+          )}
           {image ? (
             <div className="cert_img_container">
               <img
@@ -66,7 +72,9 @@ export default function ImpactCertCard({
             ? description.substring(0, 80) + "..."
             : description}
         </div>
-        {tags && <div className="cert_tags">{tags.filter(String).join(", ")}</div>}
+        {tags && (
+          <div className="cert_tags">{tags.filter(String).join(", ")}</div>
+        )}
       </Card>
     </Link>
   );
