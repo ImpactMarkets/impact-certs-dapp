@@ -1,4 +1,4 @@
-.detailed_cert_card{
+.detailed_cert_card {
   width: 95%;
   max-width: 800px;
   padding: 30px;
@@ -7,4 +7,18 @@
   box-shadow: 0px 9px 12px 6px #30303011;
   border-radius: 15px;
   box-sizing: border-box;
+}
+
+.buy_button {
+  padding: 5px 20px 5px 20px;
+  margin: 5px 0 0 0;
+  border: 2px solid #0466c8;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.buy_button:hover {
+  color: white;
+  background-color: #0466c8;
+  cursor: pointer;
 }

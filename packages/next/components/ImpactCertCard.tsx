@@ -33,9 +33,11 @@ export default function ImpactCertCard({
         className="cert_card"
       >
         <div>
-          {approved_list.approved_list.includes(id) && (
-            <div className="approved">👌</div>
-          )}
+          {approved_list.approved_list.includes(id) ? (
+                <div className="approved">👌</div>
+              ) : (
+                <div className="approved">🤷‍♂️</div>
+              )}
           {image ? (
             <div className="cert_img_container">
               <img
@@ -64,7 +66,7 @@ export default function ImpactCertCard({
             ? description.substring(0, 80) + "..."
             : description}
         </div>
-        {tags && <div className="cert_tags">{tags.join(", ")}</div>}
+        {tags && <div className="cert_tags">{tags.filter(String).join(", ")}</div>}
       </Card>
     </Link>
   );

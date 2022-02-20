@@ -65,8 +65,11 @@ const ImpactCertDetail: NextPage = () => {
         <div className="detailed_cert_container">
           <div className="detailed_cert_card">
             <div>
-              {cert?.id && approved_list.approved_list.includes(parseInt(cert?.id)) && (
+              {cert?.id &&
+              approved_list.approved_list.includes(parseInt(cert?.id)) ? (
                 <div className="approved">👌</div>
+              ) : (
+                <div className="approved">🤷‍♂️</div>
               )}
               {cert?.image ? (
                 <div className="cert_img_container">
@@ -91,12 +94,15 @@ const ImpactCertDetail: NextPage = () => {
                 <u>{cert?.owner && cert?.owner.substring(0, 8)}</u>...
               </a>
             </div>
-            <div className="cert_description">
-              {cert?.description}
-            </div>
+            <div className="cert_description">{cert?.description}</div>
             {cert?.tags && (
-              <div className="cert_tags">{cert?.tags.join(", ")}</div>
+              <div className="cert_tags">{cert?.tags.filter(String).join(", ")}</div>
             )}
+            {(cert?.owner &&
+              cert?.owner == "0x4eCcf02e326D9aE57CaB44FC7c734F6adDbBb2D7") ||
+              (cert?.owner == "0x9509beB107F29f159E533CaF58377459f54139E0" && (
+                <div className="buy_button">Buy</div>
+              ))}
           </div>
         </div>
       </Fragment>
