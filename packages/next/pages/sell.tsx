@@ -56,8 +56,8 @@ const Auction: NextPage = () => {
   const startAuction = async () => {
     setSubmit(true);
     const approve = await minter.approve(auctionAddress, tokenId);
-    await wait({ hash: approve.hash });
     setTxHash(approve.hash);
+    await wait({ hash: approve.hash });
     const result = await auction.start(
       nft,
       tokenId,
