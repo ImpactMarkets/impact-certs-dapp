@@ -8,14 +8,9 @@ import {
 } from "wagmi";
 import { Layout, WalletOptionsModal } from "../components";
 import {
-  Alert,
   Button,
-  Spinner,
   TextInputField,
-  TextareaField,
-  TagInput,
-  FormField,
-  FilePicker,
+  Alert,
 } from "evergreen-ui";
 import auctionABI from "../abis/ratchetauction.json";
 import minterABI from "../abis/minter.json";

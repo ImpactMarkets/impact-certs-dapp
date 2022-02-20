@@ -1,34 +1,29 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { ReactNode } from "react";
 import type ImpactCert from "../../types/ImpactCert";
 import { useState, Fragment } from "react";
-import Image from "next/image";
-import { ConstructorFragment } from "ethers/lib/utils";
-import { useContract, useProvider, useNetwork } from "wagmi";
+import { useContract, useProvider, useNetwork, useWaitForTransaction } from "wagmi";
 import minterABI from "../../abis/minter.json";
-import { Card, Pane } from "evergreen-ui";
-import { MdTextRotationAngledown } from "react-icons/md";
+import erc20ABI from '../../abis/erc20.json';
+import ethers from "ethers";
+import auctionABI from "../../abis/ratchetauction.json";
+import { Button, TextInputField } from "evergreen-ui";
 import {
-  ImpactCertCard,
   Layout,
   Loader,
   WalletOptionsModal,
 } from "../../components";
 import approved_list from "../../public/approved_cert_list";
-import { Certificate } from "crypto";
 
+const auctionAddress = "0x4eCcf02e326D9aE57CaB44FC7c734F6adDbBb2D7";
 const minterAddress = "0x89b93b72f484470f15dd181dbbff0d2b2d5b22f9";
-const ipfsAddr = (ipfs: string) => {
-  return `https://ipfs.io/ipfs/${ipfs.substring(7)}`;
-};
 
 const ImpactCertDetail: NextPage = () => {
   const router = useRouter();
   const { tokenId } = router.query;
 
   const provider = useProvider();
-  const [{ data, error, loading }, switchNetwork] = useNetwork();
+  const [{ data: networkData, error: networkError, loading }, switchNetwork] = useNetwork();
   const contract = useContract({
     addressOrName: minterAddress,
     contractInterface: minterABI,
@@ -48,7 +43,8 @@ const ImpactCertDetail: NextPage = () => {
     cert.id = parseInt(tokenId as string);
     setCert(cert);
   };
-  if (data?.chain?.name == "Ropsten") {
+
+  if (networkData?.chain?.name == "Ropsten") {
     if (!loadingNFTs) {
       fetchCert();
       setLoadingNFTs(true);
@@ -99,10 +95,9 @@ const ImpactCertDetail: NextPage = () => {
               <div className="cert_tags">{cert?.tags.filter(String).join(", ")}</div>
             )}
             {(cert?.owner &&
-              cert?.owner == "0x4eCcf02e326D9aE57CaB44FC7c734F6adDbBb2D7") ||
-              (cert?.owner == "0x9509beB107F29f159E533CaF58377459f54139E0" && (
-                <div className="buy_button">Buy</div>
-              ))}
+              cert?.owner == "0x4eCcf02e326D9aE57CaB44FC7c734F6adDbBb2D7") && (
+                  <Button className="buy button" disabled>Buy (coming soon)</Button>
+              )}
           </div>
         </div>
       </Fragment>
