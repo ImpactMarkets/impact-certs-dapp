@@ -160,12 +160,15 @@
     display: flex;
     align-items: center;
   }
+
+  button, [type='button'], [type='reset'], [type='submit']{
+    background-color: white;
+  }
   
   .submit_tag, .clear_tags {
     display: flex;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     border-radius: 8px;
-    border: 1px solid rgb(229, 232, 235);
     height: 30px;
     padding: 0px 12px 0px 12px;
     min-width: 0px;
@@ -174,7 +177,6 @@
     font-size: 0.8rem;
     text-align: center;
     align-items: center;
-    border: 1px solid #0466c8;
     justify-content: center;
   }
   

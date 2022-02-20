@@ -11,14 +11,14 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-   html {
-    color: #222;
-    font-size: 1em;
-    line-height: 1.4;
-    font-family: roboto;
-  }
-  
-  /*
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+  font-family: roboto;
+}
+
+/*
    * Remove text-shadow in selection highlight:
    * https://twitter.com/miketaylr/status/12228805301
    *
@@ -27,37 +27,37 @@
    *
    * Customize the background color to match your design.
    */
-  
-  ::-moz-selection {
-    background: #b3d4fc;
-    text-shadow: none;
-  }
-  
-  ::selection {
-    background: #b3d4fc;
-    text-shadow: none;
-  }
-  
-  /*
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
    * A better looking default horizontal rule
    */
-  
-  hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-  }
-  
-  /*
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
    * Remove the gap between audio, canvas, iframes,
    * images, videos and the bottom of their containers:
    * https://github.com/h5bp/html5-boilerplate/issues/440
    */
-  
-  /* audio,
+
+/* audio,
   canvas,
   iframe,
   img,
@@ -65,43 +65,43 @@
   video {
     vertical-align: middle;
   } */
-  
-  /*
+
+/*
    * Remove default fieldset styles.
    */
-  
-  fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /*
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
    * Allow only vertical resizing of textareas.
    */
-  
-  textarea {
-    resize: vertical;
-  }
-  
-  /* ==========================================================================
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
      Author's custom styles
      ========================================================================== */
-  
-  /* ==========================================================================
+
+/* ==========================================================================
      Helper classes
      ========================================================================== */
-  
-  /*
+
+/*
    * Hide visually and from screen readers
    */
-  
-  .hidden,
-  [hidden] {
-    display: none !important;
-  }
-  
-  /*
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
    * Hide only visually, but have it available for screen readers:
    * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
    *
@@ -109,46 +109,46 @@
    *    causes content to wrap 1 word per line:
    *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
    */
-  
-  .sr-only {
-    border: 0;
-    clip: rect(0, 0, 0, 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    /* 1 */
-  }
-  
-  /*
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
    * Extends the .sr-only class to allow the element
    * to be focusable when navigated to via the keyboard:
    * https://www.drupal.org/node/897638
    */
-  
-  .sr-only.focusable:active,
-  .sr-only.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    white-space: inherit;
-    width: auto;
-  }
-  
-  /*
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
    * Hide visually and from screen readers, but maintain layout
    */
-  
-  .invisible {
-    visibility: hidden;
-  }
-  
-  /*
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
    * Clearfix: contain floats
    *
    * For modern browsers
@@ -159,349 +159,335 @@
    * 2. The use of `table` rather than `block` is only necessary if using
    *    `:before` to contain the top-margins of child elements.
    */
-  
-  .clearfix::before,
-  .clearfix::after {
-    content: " ";
-    display: table;
-  }
-  
-  .clearfix::after {
-    clear: both;
-  }
-  
-  /* ==========================================================================
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
      EXAMPLE Media Queries for Responsive Design.
      These examples override the primary ('mobile first') styles.
      Modify as content requires.
      ========================================================================== */
-  
-  @media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
-  }
-  
-  @media print,
-    (-webkit-min-device-pixel-ratio: 1.25),
-    (min-resolution: 1.25dppx),
-    (min-resolution: 120dpi) {
-    /* Style adjustments for high resolution devices */
-  }
-  
-  /* ==========================================================================
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
      Print styles.
      Inlined to avoid the additional HTTP request:
      https://www.phpied.com/delay-loading-your-print-css/
      ========================================================================== */
-  
-  @media print {
-    *,
-    *::before,
-    *::after {
-      background: #fff !important;
-      color: #000 !important;
-      /* Black prints faster */
-      box-shadow: none !important;
-      text-shadow: none !important;
-    }
-  
-    a,
-    a:visited {
-      text-decoration: underline;
-    }
-  
-    a[href]::after {
-      content: " (" attr(href) ")";
-    }
-  
-    abbr[title]::after {
-      content: " (" attr(title) ")";
-    }
-  
-    /*
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
      * Don't show links that are fragment identifiers,
      * or use the `javascript:` pseudo protocol
      */
-    a[href^="#"]::after,
-    a[href^="javascript:"]::after {
-      content: "";
-    }
-  
-    pre {
-      white-space: pre-wrap !important;
-    }
-  
-    pre,
-    blockquote {
-      border: 1px solid #999;
-      page-break-inside: avoid;
-    }
-  
-    /*
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
      * Printing Tables:
      * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
      */
-    thead {
-      display: table-header-group;
-    }
-  
-    /* tr,
+  thead {
+    display: table-header-group;
+  }
+
+  /* tr,
     img {
       page-break-inside: avoid;
     } */
-  
-    p,
-    h2,
-    h3 {
-      orphans: 3;
-      widows: 3;
-    }
-  
-    h2,
-    h3 {
-      page-break-after: avoid;
-    }
-  }
-  
-  a {
-    color: #0466c8;
-  }
-  
-  a:visited {
-    color: #0466c8;
-  }
-  
-  .body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  input {
-    margin-bottom: 10px;
-  }
-  
-  .mint {
-    margin-top: 30px;
-  }
-  
-  .file_input {
-    height: 120px;
-    width: 200px;
-    border: 3px dashed rgb(204, 204, 204);
-    display: flex;
-  }
-  
-  .insert_photo {
-    height: 50px;
-    width: 50px;
-    margin: auto auto;
-    display: block;
-  }
-  
-  .menu {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    margin: 10px 0 0px 0;
-    padding: 0 0 10px 0;
-    font-size: 1.1rem;
-    color: #001233;
-    /* border-bottom: 2px solid #0466c8; */
-    align-items: center;
-  }
-  
-  .cta_flex{
-    display: flex;
-    line-break: wrap;
-    width: 400px;
-    max-width: 95%;
-    margin: 40px 0 5px 0;
-    justify-content: space-between;
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
   }
 
-  .full_width{
-      width: 100%;
+  h2,
+  h3 {
+    page-break-after: avoid;
   }
-  
-  .menu a {
-    text-decoration: none;
-    color: #001233;
-  }
-  
-  .menu a:visited {
-    text-decoration: none;
-    color: #001233;
-  }
-  
-  .active {
-    font-weight: bold;
-  }
-  
-  .hero {
-    margin: 120px auto 0 auto;
-    font-size: 2.5rem;
-    font-weight: bold;
-    max-width: 95%;
-    text-align: center;
-  }
-  
-  .blue {
-    color: #0466c8;
-  }
-  
-  .cta_discord {
-    color: #0466c8;
-    text-align: center;
-    margin: 15px 0 50px 0;
-  }
-  
-  .explainer {
-    padding: 60px 0 60px 0;
-    margin: 50px 0 50px 0;
-    text-align: center;
-    width: 100%;
-    background-color: #0466c8;
-    color: white;
-  }
-  
+}
+
+a {
+  color: #0466c8;
+}
+
+a:visited {
+  color: #0466c8;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+.mint {
+  margin-top: 30px;
+}
+
+.file_input {
+  height: 120px;
+  width: 200px;
+  border: 3px dashed rgb(204, 204, 204);
+  display: flex;
+}
+
+.insert_photo {
+  height: 50px;
+  width: 50px;
+  margin: auto auto;
+  display: block;
+}
+
+.cta_flex {
+  display: flex;
+  line-break: wrap;
+  width: 400px;
+  max-width: 95%;
+  margin: 40px 0 5px 0;
+  justify-content: space-between;
+}
+
+.full_width {
+  width: 100%;
+}
+
+.active {
+  font-weight: bold;
+  border-bottom: 3px solid #0466c8;
+}
+
+.non-active {
+  border-bottom: 3px solid white;
+}
+
+.hero {
+  margin: 70px auto 0 auto;
+  font-size: 2.5rem;
+  font-weight: bold;
+  max-width: 95%;
+  text-align: center;
+}
+
+.blue {
+  color: #0466c8;
+}
+
+.cta_discord {
+  color: #0466c8;
+  text-align: center;
+  margin: 15px 0 50px 0;
+}
+
+.explainer {
+  padding: 60px 0 60px 0;
+  margin: 50px 0 50px 0;
+  text-align: center;
+  width: 100%;
+  background-color: #0466c8;
+  color: white;
+}
+
+.explainer_flex {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  color: black;
+}
+
+.explainer_card {
+  max-width: 95%;
+  width: 380px;
+  margin: 0 20px 0 20px;
+  -webkit-box-shadow: 0px 9px 12px 6px #3030305b;
+  box-shadow: 0px 9px 12px 6px #3030305b;
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 20px 15px 35px 15px;
+  background-color: white;
+  display: flex;
+  min-height: 140px;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.1rem;
+}
+
+.explainer_card img {
+  max-height: 80px;
+  margin: 10px 0 25px 0;
+}
+
+.header {
+  font-weight: lighter;
+  font-size: 2.3rem;
+  margin: 0 0 40px 0;
+  letter-spacing: 13px;
+  text-align: center;
+}
+
+.discord_container {
+  width: 150px;
+}
+
+.discord_button {
+  width: 150px;
+  height: auto;
+  border: 2px solid #7289da;
+  border-radius: 8px;
+  padding: 7px 13px 5px 13px;
+  transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -webkit-box-shadow: 10px 10px 15px -2px rgba(197, 203, 211, 0.5);
+  -moz-box-shadow: 10px 10px 15px -2px rgba(197, 203, 211, 0.5);
+  box-shadow: 10px 10px 15px -2px rgba(197, 203, 211, 0.5);
+}
+
+.discord_button:hover {
+  -webkit-box-shadow: 10px 10px 15px -2px rgba(197, 203, 211, 1);
+  -moz-box-shadow: 10px 10px 15px -2px rgba(197, 203, 211, 1);
+  box-shadow: 10px 10px 15px -2px rgba(197, 203, 211, 1);
+}
+
+.footer {
+  text-align: center;
+  margin: 10px 0 10px 0;
+}
+
+.step_back {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 95%;
+}
+
+.step_back_details {
+  width: 700px;
+  max-width: 95%;
+  font-size: 1.1rem;
+}
+
+.step_back_details p {
+  margin: 0 0 40px 0;
+}
+
+.mint_cta {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: bold;
+  width: 800px;
+  max-width: 95%;
+  border: 8px solid #0466c8af;
+  padding: 30px;
+  border-radius: 15px;
+  margin: 30px 0 80px 0;
+  box-sizing: border-box;
+}
+
+.mint_cta a {
+  color: #0466c8;
+  text-decoration: none;
+}
+
+.mint_cta a:visited {
+  color: #0466c8;
+}
+
+.mint_cta_details {
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+
+.mint_button {
+  padding: 5px 30px 5px 30px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: 1px solid #0466c8;
+  border-radius: 8px;
+  margin: 25px 0 0 0;
+}
+
+.mint_button:hover {
+  cursor: pointer;
+  background-color: #0466c8;
+  color: white;
+}
+
+@media only screen and (max-width: 800px) {
   .explainer_flex {
-    display: flex;
-    align-self: center;
-    justify-content: center;
-    color: black;
-  }
-  
-  .explainer_card {
-    max-width: 95%;
-    width: 380px;
-    margin: 0 20px 0 20px;
-    -webkit-box-shadow: 0px 9px 12px 6px #3030305b;
-    box-shadow: 0px 9px 12px 6px #3030305b;
-    border-radius: 15px;
-    box-sizing: border-box;
-    padding: 20px 15px 35px 15px;
-    background-color: white;
-    display: flex;
-    min-height: 140px;
-    align-items: center;
     flex-direction: column;
-    font-size: 1.1rem;
-  }
-  
-  .explainer_card img {
-    max-height: 80px;
-    margin: 10px 0 25px 0;
-  }
-  
-  .header {
-    font-weight: lighter;
-    font-size: 2.3rem;
-    margin: 0 0 40px 0;
-    letter-spacing: 13px;
-    text-align: center;
+    align-items: center;
   }
 
-  .discord_container{
-      width: 150px;
+  .explainer_card {
+    margin: 30px 0 0 0;
   }
-  
-  .discord_button {
-    width: 150px;
-    height: auto;
-    border: 2px solid #7289da;
-    border-radius: 8px;
-    padding: 7px 13px 5px 13px;
-    transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-    -webkit-transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-    -webkit-box-shadow: 10px 10px 15px -2px rgba(197, 203, 211, 0.5);
-    -moz-box-shadow: 10px 10px 15px -2px rgba(197, 203, 211, 0.5);
-    box-shadow: 10px 10px 15px -2px rgba(197, 203, 211, 0.5);
-  }
-  
-  .discord_button:hover {
-    -webkit-box-shadow: 10px 10px 15px -2px rgba(197, 203, 211, 1);
-    -moz-box-shadow: 10px 10px 15px -2px rgba(197, 203, 211, 1);
-    box-shadow: 10px 10px 15px -2px rgba(197, 203, 211, 1);
-  }
-  
-  .footer {
-    text-align: center;
-    margin: 10px 0 10px 0;
-  }
-  
-  .step_back {
-    display: flex;
-    align-items: center;
+}
+
+@media only screen and (max-width: 500px) {
+  .cta_flex {
     flex-direction: column;
-    max-width: 95%;
-  }
-  
-  .step_back_details {
-    width: 700px;
-    max-width: 95%;
-    font-size: 1.1rem;
-  }
-  
-  .step_back_details p {
-    margin: 0 0 40px 0;
-  }
-  
-  .mint_cta {
-    display: flex;
     align-items: center;
-    flex-direction: column;
-    text-align: center;
-    font-size: 1.9rem;
-    font-weight: bold;
-    width: 800px;
-    max-width: 95%;
-    border: 8px solid #0466c8af;
-    padding: 30px;
-    border-radius: 15px;
-    margin: 30px 0 80px 0;
-    box-sizing: border-box;
   }
-  
-  .mint_cta a {
-    color: #0466c8;
-    text-decoration: none;
-  }
-  
-  .mint_cta a:visited {
-    color: #0466c8;
-  }
-  
-  .mint_cta_details {
-    font-size: 0.8rem;
-    font-weight: normal;
-  }
-  
-  .mint_button {
-    padding: 5px 30px 5px 30px;
-    font-size: 1.3rem;
-    font-weight: bold;
-    border: 1px solid #0466c8;
-    border-radius: 8px;
-    margin: 25px 0 0 0;
-  }
-  
-  @media only screen and (max-width: 800px) {
-    .explainer_flex {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .explainer_card {
-      margin: 30px 0 0 0;
-    }
-  }
-  
-  @media only screen and (max-width: 500px) {
-    .cta_flex{
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-  
-  
-  
+}

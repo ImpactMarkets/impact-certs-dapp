@@ -6,13 +6,15 @@ import minterABI from "../abis/minter.json";
 import { Pane } from "evergreen-ui";
 import { MdTextRotationAngledown } from "react-icons/md";
 import { ImpactCertCard } from "../components";
-
+import approved_list from "../public/approved_cert_list";
 interface Props {
   children?: string | JSX.Element;
   filter: string;
+  approvedOnly: boolean;
 }
 
 interface ImpactCert {
+  id: number;
   name: string;
   description: string;
   image: string;
@@ -25,7 +27,7 @@ const ipfsAddr = (ipfs: string) => {
   return `https://ipfs.io/ipfs/${ipfs.substring(7)}`;
 };
 
-export default function ImpactCertGrid({ filter }: Props) {
+export default function ImpactCertGrid({ filter, approvedOnly }: Props) {
   const provider = useProvider();
   const [{ data, error, loading }, switchNetwork] = useNetwork();
   const contract = useContract({
@@ -51,6 +53,7 @@ export default function ImpactCertGrid({ filter }: Props) {
       console.log(cert);
       NFTs[i] = cert;
       NFTs[i]["owner"] = owner;
+      NFTs[i]["id"] = i;
     }
     setNFTs(NFTs);
   };
@@ -67,11 +70,15 @@ export default function ImpactCertGrid({ filter }: Props) {
           {loading ? (
             <h1>Loading</h1>
           ) : (
-            NFTs.filter((cert) => filter == "all" || cert.tags?.indexOf(filter) >= 0).map((cert, index) =>
+            NFTs.filter(
+              (cert) => 
+              (filter == "all" || cert.tags?.indexOf(filter) >= 0)
+              && (approvedOnly == false || approved_list.approved_list.includes(cert?.id))
+              ).map((cert, index) =>
               cert ? (
                 <ImpactCertCard
                   image={ipfsAddr(cert.image)}
-                  id={index}
+                  id={cert.id}
                   title={cert.name}
                   address={cert.owner}
                   description={cert.description}

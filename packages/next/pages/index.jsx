@@ -4,6 +4,7 @@ import Script from "next/script";
 import { useAccount, useBalance, useProvider } from "wagmi";
 import { Layout, Loader, WalletOptionsModal } from "../components";
 import Image from "next/image";
+import Link from "next/link";
 
 const Home = () => {
   const [showWalletOptions, setShowWalletOptions] = useState(false);
@@ -61,9 +62,9 @@ const Home = () => {
                 <div className="explainer_card">
                   <img src="/telescope.png" alt="telescope" />
                   <div>
-                    It's easy to tell if an action{" "}
-                    <span className="blue">was good</span>. It's hard to tell if
-                    an action <span className="blue">will be good.</span>
+                    It&apos;s easy to tell if an action{" "}
+                    <b>was good</b>. It&apos;s hard to tell if
+                    an action <b>will be good.</b>
                   </div>
                 </div>
                 <div className="explainer_card">
@@ -72,13 +73,13 @@ const Home = () => {
                 </div>
                 <div className="explainer_card">
                   <img src="/rocket.png" alt="rocket" />
-                  We're creating a profitable market for impact certificates to
+                  We&apos;re creating a profitable market for impact certificates to
                   solve the hard problem.
                 </div>
               </div>
             </div>
             <div className="step_back">
-              <div className="header">Let's take a step back</div>
+              <div className="header">Let&apos;s take a step back</div>
               <div className="step_back_details">
                 <p>
                   We want to solve the biggest problems. Climate change, nuclear
@@ -93,7 +94,7 @@ const Home = () => {
                   , etc.
                 </p>
                 <p>
-                  But it's currently hard to make money funding or working on
+                  But it&apos;s currently hard to make money funding or working on
                   these problems. The solutions to these problems are{" "}
                   <a
                     target="_blank"
@@ -149,9 +150,9 @@ const Home = () => {
                 impactcerts.com is currently in Alpha and on the Ropsten test
                 net
               </div>
-              <a href="/minter">
-                <div className="mint_button">Mint</div>
-              </a>
+              <Link href="/mint" passHref>
+              <div className="mint_button">Mint</div>
+              </Link>
             </div>
 
             <div className="faq">
@@ -186,7 +187,7 @@ const Home = () => {
                   Buyers who want to buy and hold certificates to influence
                   smaller actors in the market via demand. Speculators would
                   only want to buy impact certificates that are likely to be
-                  bought by these impact-aligned final buyers.
+                  bought by these impact-aligned final buyers. 
                 </p>
 
                 <p>
