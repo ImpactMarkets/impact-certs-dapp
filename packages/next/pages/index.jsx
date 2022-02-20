@@ -62,9 +62,8 @@ const Home = () => {
                 <div className="explainer_card">
                   <img src="/telescope.png" alt="telescope" />
                   <div>
-                    It&apos;s easy to tell if an action{" "}
-                    <b>was good</b>. It&apos;s hard to tell if
-                    an action <b>will be good.</b>
+                    It&apos;s easy to tell if an action <b>was good</b>.
+                    It&apos;s hard to tell if an action <b>will be good.</b>
                   </div>
                 </div>
                 <div className="explainer_card">
@@ -73,8 +72,8 @@ const Home = () => {
                 </div>
                 <div className="explainer_card">
                   <img src="/rocket.png" alt="rocket" />
-                  We&apos;re creating a profitable market for impact certificates to
-                  solve the hard problem.
+                  We&apos;re creating a profitable market for impact
+                  certificates to solve the hard problem.
                 </div>
               </div>
             </div>
@@ -94,8 +93,8 @@ const Home = () => {
                   , etc.
                 </p>
                 <p>
-                  But it&apos;s currently hard to make money funding or working on
-                  these problems. The solutions to these problems are{" "}
+                  But it&apos;s currently hard to make money funding or working
+                  on these problems. The solutions to these problems are{" "}
                   <a
                     target="_blank"
                     rel="noreferrer"
@@ -151,7 +150,7 @@ const Home = () => {
                 net
               </div>
               <Link href="/mint" passHref>
-              <div className="mint_button">Mint</div>
+                <div className="mint_button">Mint</div>
               </Link>
             </div>
 
@@ -187,7 +186,7 @@ const Home = () => {
                   Buyers who want to buy and hold certificates to influence
                   smaller actors in the market via demand. Speculators would
                   only want to buy impact certificates that are likely to be
-                  bought by these impact-aligned final buyers. 
+                  bought by these impact-aligned final buyers.
                 </p>
 
                 <p>
@@ -333,7 +332,8 @@ const Home = () => {
             ImpactCerts.com - An Open Source Public Good
           </footer>
 
-          <Script id="accordian">{`
+          <Script id="accordian">
+            {`
       (function () {
         const headings = document.querySelectorAll('h3');
 
@@ -349,7 +349,7 @@ const Home = () => {
           }
         });
       })();`}
-      </Script>
+          </Script>
         </body>
       </Fragment>
     );
@@ -365,9 +365,7 @@ const Home = () => {
         showWalletOptions={false}
         setShowWalletOptions={setShowWalletOptions}
       >
-        <div className="grid h-screen place-items-center">
-          <div className="full_width">{renderContent()}</div>
-        </div>
+        <div className="full_width">{renderContent()}</div>
       </Layout>
     </Fragment>
   );

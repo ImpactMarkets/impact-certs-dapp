@@ -116,11 +116,11 @@ export default function Layout(props: Props) {
             </span>
             <span
               className={
-                router.pathname == "/auction" ? "active" : "non-active"
+                router.pathname == "/sell" ? "active" : "non-active"
               }
             >
-              <Link href="/auction">
-                <a>Auction</a>
+              <Link href="/sell">
+                <a>Sell</a>
               </Link>
             </span>
           </div>
