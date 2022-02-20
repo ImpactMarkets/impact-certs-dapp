@@ -1,10 +1,7 @@
 import { useState, Fragment } from "react";
-import Image from "next/image";
-import { ConstructorFragment } from "ethers/lib/utils";
 import { useContract, useProvider, useNetwork } from "wagmi";
 import minterABI from "../abis/minter.json";
-import { Pane } from "evergreen-ui";
-import { MdTextRotationAngledown } from "react-icons/md";
+import { Spinner } from "evergreen-ui";
 import { ImpactCertCard } from "../components";
 import approved_list from "../public/approved_cert_list";
 import type ImpactCert from "../types/ImpactCert";
@@ -48,9 +45,10 @@ export default function ImpactCertGrid({ filter, approvedOnly }: Props) {
       NFTs[i]["id"] = i;
     }
     setNFTs(NFTs);
+    setLoadingNFTs(false);
   };
   if (data?.chain?.name == "Ropsten") {
-    if (!loadingNFTs) {
+    if (!loadingNFTs && NFTs.length == 0) {
       fetchNFTs();
       setLoadingNFTs(true);
     }
@@ -59,8 +57,8 @@ export default function ImpactCertGrid({ filter, approvedOnly }: Props) {
     <Fragment>
       <div className="cert_grid_container">
         <div className="cert_grid">
-          {loading ? (
-            <h1>Loading</h1>
+          {loading || loadingNFTs ? (
+            <Spinner />
           ) : (
             NFTs.filter(
               (cert) => 
