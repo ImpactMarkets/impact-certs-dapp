@@ -92,7 +92,7 @@ export default function Layout(props: Props) {
         <div className="menu_container flex items-center justify-between p-4">
           <div className="menu flex items-center">
             <span className={router.pathname == "/" ? "active" : "non-active"}>
-              <Link href="../">
+              <Link href="/">
                 <a>Home</a>
               </Link>
             </span>

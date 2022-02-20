@@ -31,11 +31,7 @@ const Minter: NextPage = () => {
               </div>
               <div className="input_title">Description*</div>
               <div>
-                <textarea
-                  id="nft_desc"
-                  rows={4}
-                  cols={30}
-                ></textarea>
+                <textarea id="nft_desc" rows={4} cols={30}></textarea>
               </div>
               <div className="input_title">Owner Address*</div>
               <div>
