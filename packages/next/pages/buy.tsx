@@ -94,7 +94,7 @@ const BuyPage: NextPage = () => {
             Buy
           </Button>
           {txHash && (
-            <Alert intent="success" title="Your Auction is being created!">
+            <Alert intent="success" title="Your purchase is pending!">
               <Spinner size={20} />
               View the transaction on{" "}
               <a
