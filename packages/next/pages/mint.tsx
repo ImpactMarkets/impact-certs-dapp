@@ -40,7 +40,7 @@ const Minter: NextPage = () => {
     const ipfs_res = await nft_client.store({
       name,
       description,
-      image: new File(files, "im.png"),
+      image: new File(files as any, "im.png"),
       type: "Impact Certificate",
       tags,
       external_url: url,
