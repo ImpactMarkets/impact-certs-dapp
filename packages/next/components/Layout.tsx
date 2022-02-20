@@ -101,7 +101,7 @@ export default function Layout(props: Props) {
                 <a>Mint</a>
               </Link>
             </span>
-            <span className={router.pathname == "/gallery" || "/cert" ? "active" : "non-active"}>
+            <span className={router.pathname == ("/gallery" || "/cert") ? "active" : "non-active"}>
               <Link href="/gallery">
                 <a>Gallery</a>
               </Link>
