@@ -11,8 +11,11 @@ import {
 import erc20ABI from "../abis/erc20.json";
 import { Contract } from "ethers";
 import auctionABI from "../abis/ratchetauction.json";
-import { Button, TextInputField, Alert } from "evergreen-ui";
-import { Layout, WalletOptionsModal } from "../components";
+import { Button, TextInputField, Alert, Spinner } from "evergreen-ui";
+import {
+  Layout,
+  WalletOptionsModal,
+} from "../components";
 
 const auctionAddress = "0x4eCcf02e326D9aE57CaB44FC7c734F6adDbBb2D7";
 
@@ -33,20 +36,24 @@ const BuyPage: NextPage = () => {
   const [txHash, setTxHash] = useState("");
 
   const checkPrice = async () => {
-    const lastPrice = await auction.lastPrices(tokenId);
-    const minRaise = await auction.minPercentRaises(tokenId);
-    setBid((lastPrice * minRaise) / 1000.0);
-  };
+        const lastPriceBigNum = await auction.lastPrices(tokenId);
+        const lastPrice = lastPriceBigNum.toNumber();
+        const minRaise = await auction.minPercentRaises(tokenId);
+        setBid(lastPrice + lastPrice * (minRaise / 100000.0));
+    };
 
   const buyCert = async () => {
     setBuying(true);
     const auctionToken = await auction.auctionTokens(tokenId);
     const erc20Contract = new Contract(auctionToken, erc20ABI, signer);
     const approvalTx = await erc20Contract.approve(auctionAddress, bid);
+    setTxHash(approvalTx.hash);
     const waitForApproval = await wait({ hash: approvalTx.hash });
     const bidTx = await auction.buy(bid, tokenId);
+    setTxHash(bidTx.hash);
     const waitForBid = await wait({ hash: bidTx.hash });
     setBuying(false);
+    setTxHash('')
   };
   return (
     <Fragment>
@@ -87,7 +94,8 @@ const BuyPage: NextPage = () => {
             Buy
           </Button>
           {txHash && (
-            <Alert intent="success" title="Your Auction is being created!">
+            <Alert intent="success" title="Your purchase is pending!">
+              <Spinner size={20} />
               View the transaction on{" "}
               <a
                 target="_blank"
@@ -95,9 +103,8 @@ const BuyPage: NextPage = () => {
                 rel="noreferrer"
               >
                 Etherscan
-              </a>{" "}
-            </Alert>
-          )}
+              </a>
+            </Alert>)}
         </div>
       </Layout>
     </Fragment>
