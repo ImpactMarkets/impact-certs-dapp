@@ -1,6 +1,5 @@
-
 .filter {
-  margin: 20px;
+  margin: 25px;
 }
 
 .approved {
@@ -10,16 +9,28 @@
   margin-bottom: -30px;
 }
 
-.header_container{
+.header_container {
   display: flex;
   width: 95%;
   margin: auto;
+  max-width: 1350px;
   align-items: center;
 }
 
 .cert_img {
-  width: 200px;
+  max-height: 200px;
+  max-width: 200px;
+  width: auto;
   height: auto;
+  margin: auto;
+}
+
+.cert_img_container {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: auto;
 }
 
@@ -40,6 +51,8 @@
 
 .cert_card {
   transition: 0.3s;
+  max-width: 400px;
+  width: 100%;
 }
 
 .cert_card:hover {
@@ -52,6 +65,9 @@
   grid-template-columns: 1fr 1fr 1fr;
   width: 95%;
   margin: auto;
+  grid-template-rows: auto;
+  justify-items: center;
+  max-width: 1350px;
 }
 
 .cert_tags {
@@ -64,5 +80,17 @@
 @media only screen and (max-width: 1439px) {
   .cert_grid {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+  .cert_grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .header_container {
+    flex-direction: column;
   }
 }

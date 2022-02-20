@@ -31,15 +31,17 @@ export default function ImpactCertCard({
       className="cert_card"
     >
       <div>
-        {approved_list.approved_list.includes(id) && <div className="approved">👌</div>}
+        {approved_list.approved_list.includes(id) && (
+          <div className="approved">👌</div>
+        )}
         {image ? (
-          <Image
-            className="cert_img"
-            src={image}
-            alt="Impact certificate image"
-            width={200}
-            height={200}
-          />
+          <div className="cert_img_container">
+            <img
+              className="cert_img"
+              src={image}
+              alt="Impact certificate image"
+            />
+          </div>
         ) : (
           <div>No image</div>
         )}

@@ -89,24 +89,24 @@ export default function Layout(props: Props) {
       />
 
       <div>
-        <div className="flex items-center justify-between p-4">
+        <div className="menu_container flex items-center justify-between p-4">
           <div className="menu flex items-center">
-            <span className={router.pathname == "/" ? "active" : ""}>
+            <span className={router.pathname == "/" ? "active" : "non-active"}>
               <Link href="../">
                 <a>Home</a>
               </Link>
             </span>
-            <span className={router.pathname == "/mint" ? "active" : ""}>
+            <span className={router.pathname == "/mint" ? "active" : "non-active"}>
               <Link href="/mint">
                 <a>Mint</a>
               </Link>
             </span>
-            <span className={router.pathname == "/gallery" ? "active" : ""}>
+            <span className={router.pathname == "/gallery" ? "active" : "non-active"}>
               <Link href="/gallery">
                 <a>Gallery</a>
               </Link>
             </span>
-            <span className={router.pathname == "/auction" ? "active" : ""}>
+            <span className={router.pathname == "/auction" ? "active" : "non-active"}>
               <Link href="/auction">
                 <a>Auction</a>
               </Link>

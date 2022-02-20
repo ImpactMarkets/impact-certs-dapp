@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import { useAccount, useBalance, useProvider } from "wagmi";
 import { Layout, Loader, WalletOptionsModal } from "../components";
 import Image from "next/image";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   const [showWalletOptions, setShowWalletOptions] = useState(false);
@@ -148,9 +149,9 @@ const Home: NextPage = () => {
                 impactcerts.com is currently in Alpha and on the Ropsten test
                 net
               </div>
-              <a href="/minter">
-                <div className="mint_button">Mint</div>
-              </a>
+              <Link href="/mint" passHref>
+              <div className="mint_button">Mint</div>
+              </Link>
             </div>
 
             <div className="faq">

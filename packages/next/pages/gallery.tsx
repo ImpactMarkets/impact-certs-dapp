@@ -45,7 +45,7 @@ const Gallery: NextPage = () => {
             </Select>
           </div>
           <Checkbox
-            label="View only approved"
+            label="View approved only"
             checked={checked}
             onChange={(e) => setChecked(e.target.checked)}
           />
