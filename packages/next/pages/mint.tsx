@@ -1,20 +1,55 @@
 import { useState, Fragment } from "react";
+import { NFTStorage } from "nft.storage";
 import type { NextPage } from "next";
-import { useAccount, useBalance, useProvider } from "wagmi";
+import { useContract, useNetwork, useSigner } from "wagmi";
 import { Layout, Loader, WalletOptionsModal } from "../components";
+import { Alert, Button, Spinner, TextInputField, TextareaField, TagInput, FormField, FilePicker } from "evergreen-ui";
+import minterABI from "../abis/minter.json";
+
+const token =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDIyRUIxYjZjNzM3MTdiODY3N0IzMzk4NDRDNTRjRjQ3NmIxMzMyM2EiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTYzOTIzOTAyNjc0OSwibmFtZSI6Ik5GVCBTdG9yYWdlIFRlc3QifQ.uu933RGtkHVYdpdm81oYTJOw4iSxqcymgvFqxLc0iFQ";
+
+const minterAddress = "0x89b93b72f484470f15dd181dbbff0d2b2d5b22f9";
 
 const Minter: NextPage = () => {
+  const nft_client = new NFTStorage({ token });
+
   const [showWalletOptions, setShowWalletOptions] = useState(false);
-  const [NFTs, setNFTs] = useState([]);
+  const [owner, setOwner] = useState('');
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [tags, setTags] = useState<string[]>([]);
+  const [url, setUrl] = useState('');
+  const [files, setFiles] = useState<FileList>();
+  const [minting, setMinting] = useState(false);
+  const [txHash, setTxHash] = useState('');
+  const tagAutocomplete = [ "Artificial Intelligence", "Animal Welfare", "Biorisk", "Climate Change", "Democracy", "Effective Altruism", "Longevity", "Open-source Software", "War", "Web3" ];
 
-  const provider = useProvider();
-
-  const loading = false;
-
-  const [filter, setFilter] = useState("all");
+  const [{ data: networkData, error: errorNetwork, loading: loadingNetwork }, switchNetwork] = useNetwork();
+  const [{ data, error, loading: loadingSigner }, getSigner] = useSigner();
+  if (networkData?.chain?.name != "Ropsten" && switchNetwork) {
+    switchNetwork(3);
+  }
+  const minter = useContract({
+    addressOrName: minterAddress,
+    contractInterface: minterABI,
+    signerOrProvider: data,
+  })
+  const mint = async () => {
+    setMinting(true);
+    const ipfs_res = await nft_client.store({
+      name,
+      description,
+      image: new File(files, "im.png"),
+      type: "Impact Certificate",
+      tags,
+      external_url: url,
+    });
+    const minted = await minter.safeMint(owner, ipfs_res.url);
+    setTxHash(minted.hash);
+  }
 
   const renderContent = () => {
-    if (loading) return <Loader size={8} />;
     return (
       <Fragment>
         <div className="body">
@@ -25,104 +60,26 @@ const Minter: NextPage = () => {
                 This minter is in ALPHA. You are minting a test impact
                 certificate on the Ropsten testnet.
               </div>
-              <div className="input_title">Name*</div>
-              <div>
-                <input id="nft_name" type="text" />
-              </div>
-              <div className="input_title">Description*</div>
-              <div>
-                <textarea
-                  id="nft_desc"
-                  type="text"
-                  rows={4}
-                  cols={30}
-                ></textarea>
-              </div>
-              <div className="input_title">Owner Address*</div>
-              <div>
-                <input id="nft_address" type="text" />
-              </div>
-              <div className="input_title">Date of impact</div>
-              <div className="date_button_flex">
-                <div>
-                  <input
-                    onClick="displayDateOne()"
-                    className="date_button"
-                    type="button"
-                    id="one_date"
-                    name="one_date"
-                    value="One date"
-                  />
-                </div>
-                <div>
-                  <input
-                    onClick="displayDateTwo()"
-                    className="date_button"
-                    type="button"
-                    id="two_dates"
-                    name="two_dates"
-                    value="Two dates"
-                  />
-                </div>
-                <div>
-                  <input
-                    onClick="hideDates()"
-                    className="date_button"
-                    type="button"
-                    id="hide_dates"
-                    name="hide_dates"
-                    value="No dates"
-                  />
-                </div>
-              </div>
-              <div className="input_title" id="date_1_div">
-                Date 1
-                <input type="date" id="date_1" />
-              </div>
-              <div className="input_title" id="date_2_div">
-                Date 2
-                <input type="date" id="date_2" />
-              </div>
-              <div className="input_title">Tags</div>
-              <div className="tag_container">
-                <input list="tags" id="tag_list" />
-                <datalist id="tags">
-                  <option value="Artificial Intelligence" />
-                  <option value="Animal Welfare" />
-                  <option value="Biorisk" />
-                  <option value="Climate Change" />
-                  <option value="Democracy" />
-                  <option value="Effective Altruism" />
-                  <option value="Longevity" />
-                  <option value="Open-source Software" />
-                  <option value="War" />
-                  <option value="Web3" />
-                </datalist>
-                <div onClick="addTag()" className="submit_tag" id="submit_tag">
-                  + Add
-                </div>
-              </div>
-              <div id="tag_preview"></div>
-              <div onClick="clearTags()" className="clear_tags" id="clear_tags">
-                Clear Tags
-              </div>
-              <div className="input_title">External URL (proof or context)</div>
-              <div>
-                <input id="external_url" type="text" />
-              </div>
-              <div className="input_title">Image</div>
-              <div>
-                <input className="image_input" id="nft_image" type="file" />
-              </div>
-              <div className="mint_button_container">
-                <button className="mint">Mint</button>
-              </div>
-            </div>
-            <div>
-              <p id="loading_ipfs"></p>
-              <p id="ipfs_link"></p>
-              <p id="loading_mint"></p>
-              <p id="mint_transaction"></p>
+              <TextInputField label="Name" required value={name} onChange={({ target }: any) => setName(target.value)} />
+              <TextareaField
+                label="Description"
+                value={description}
+                required
+                rows={4}
+                cols={30}
+                onChange={({ target }: any)=> setDescription(target.value)}
+              />
+              <TextInputField label="Owner Address" required value={owner} onChange={({ target }: any) => setOwner(target.value)} />
+              <FormField label="Tags">
+              <TagInput values={tags} onChange={setTags} autocompleteItems={tagAutocomplete}/>
+              </FormField>
+              <TextInputField label="External URL (proof or context)" value={url} onChange={({ target }: any) => setUrl(target.value)}/>
+              <FormField label="Image">
+                <FilePicker required name="image" accept="image/png, image/gif, image/jpeg" onChange={setFiles}/>
+              </FormField>
+              <Button disabled={loadingNetwork || loadingSigner || minting} onClick={mint}>Mint</Button>
+              {loadingNetwork || loadingSigner || minting && <Spinner size={50}/>}
+              {txHash && <Alert intent="success" title="Your Impact Cert is being Minted!">View the transaction on <a target="_blank" href={`https://ropsten.etherscan.io/tx/${txHash}`} rel="noreferrer">Etherscan</a> </Alert>}
             </div>
           </div>
         </div>
@@ -141,7 +98,7 @@ const Minter: NextPage = () => {
         setShowWalletOptions={setShowWalletOptions}
       >
         <div className="grid h-screen place-items-center">
-          <div className="full_width">{renderContent()}</div>
+          <div className="grid place-items-center">{renderContent()}</div>
         </div>
       </Layout>
     </Fragment>

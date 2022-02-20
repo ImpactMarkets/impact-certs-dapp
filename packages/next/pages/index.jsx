@@ -1,10 +1,11 @@
 import { useState, Fragment } from "react";
-import type { NextPage } from "next";
+// import type { NextPage } from "next";
+import Script from "next/script";
 import { useAccount, useBalance, useProvider } from "wagmi";
 import { Layout, Loader, WalletOptionsModal } from "../components";
 import Image from "next/image";
 
-const Home: NextPage = () => {
+const Home = () => {
   const [showWalletOptions, setShowWalletOptions] = useState(false);
   const [NFTs, setNFTs] = useState([]);
 
@@ -331,23 +332,23 @@ const Home: NextPage = () => {
             ImpactCerts.com - An Open Source Public Good
           </footer>
 
-          {/* <script>
-    (function () {
-      const headings = document.querySelectorAll('h3');
+          <Script id="accordian">{`
+      (function () {
+        const headings = document.querySelectorAll('h3');
 
-      Array.prototype.forEach.call(headings, h => {
-        let btn = h.querySelector('button');
-        let target = h.nextElementSibling;
+        Array.prototype.forEach.call(headings, h => {
+          let btn = h.querySelector('button');
+          let target = h.nextElementSibling;
 
-        btn.onclick = () => {
-          let expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.onclick = () => {
+            let expanded = btn.getAttribute('aria-expanded') === 'true';
 
-          btn.setAttribute('aria-expanded', !expanded);
-          target.hidden = expanded;
-        }
-      });
-    })();
-  </script> */}
+            btn.setAttribute('aria-expanded', !expanded);
+            target.hidden = expanded;
+          }
+        });
+      })();`}
+      </Script>
         </body>
       </Fragment>
     );

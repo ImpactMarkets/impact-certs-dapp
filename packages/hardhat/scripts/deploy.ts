@@ -35,11 +35,8 @@ async function main() {
 
   const RatchetAuction = await ethers.getContractFactory("RatchetAuction");
   const auctionContract = await RatchetAuction.deploy(
-    await owner.getAddress(),
-    50000,
-    1000,
-    tokenContract.address,
-    1000
+    "Impact Cert Auction",
+    "ICA"
   );
   await auctionContract.deployed();
   saveFrontendFiles(auctionContract, "RatchetAuctionContract");
