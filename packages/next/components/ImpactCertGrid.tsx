@@ -7,19 +7,11 @@ import { Pane } from "evergreen-ui";
 import { MdTextRotationAngledown } from "react-icons/md";
 import { ImpactCertCard } from "../components";
 import approved_list from "../public/approved_cert_list";
+import type ImpactCert from "../types/ImpactCert";
 interface Props {
   children?: string | JSX.Element;
   filter: string;
   approvedOnly: boolean;
-}
-
-interface ImpactCert {
-  id: number;
-  name: string;
-  description: string;
-  image: string;
-  owner: string;
-  tags: Array<string>;
 }
 
 const minterAddress = "0x89b93b72f484470f15dd181dbbff0d2b2d5b22f9";
