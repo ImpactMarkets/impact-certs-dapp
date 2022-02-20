@@ -61,8 +61,8 @@ const BuyPage: NextPage = () => {
         <div className="minter">
           <div className="header">Buy an impact certificate</div>
           <div className="auction_explainer">
-            Enter the ICA token ID and then click "Check Min Price" to see how
-            much you have to pay to own the impact certificate. Then click "Buy" to buy it.
+            Enter the ICA token ID and then click &apos;Check Min Price&apos; to see how
+            much you have to pay to own the impact certificate. Then click &apos;Buy&apos; to buy it.
           </div>
           <TextInputField
             label="Min Price"
