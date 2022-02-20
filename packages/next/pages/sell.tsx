@@ -108,14 +108,14 @@ const Auction: NextPage = () => {
               onChange={({ target }: any) => setIssuer(target.value)}
             />
             <TextInputField
-              label="Minimum Percent Raise"
+              label="Min % Raise (1000 = 1%)"
               required
               type="number"
               value={minPercentRaise}
               onChange={({ target }: any) => setMinPercentRaise(target.value)}
             />
             <TextInputField
-              label="Previous Owner Profit Share"
+              label="Previous Owner Profit Share (1000 = 1%)"
               required
               type="number"
               value={ownerFee}
