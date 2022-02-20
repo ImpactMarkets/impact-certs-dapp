@@ -3,7 +3,16 @@ import { NFTStorage } from "nft.storage";
 import type { NextPage } from "next";
 import { useContract, useNetwork, useSigner } from "wagmi";
 import { Layout, Loader, WalletOptionsModal } from "../components";
-import { Alert, Button, Spinner, TextInputField, TextareaField, TagInput, FormField, FilePicker } from "evergreen-ui";
+import {
+  Alert,
+  Button,
+  Spinner,
+  TextInputField,
+  TextareaField,
+  TagInput,
+  FormField,
+  FilePicker,
+} from "evergreen-ui";
 import minterABI from "../abis/minter.json";
 
 const token =
@@ -15,17 +24,31 @@ const Minter: NextPage = () => {
   const nft_client = new NFTStorage({ token });
 
   const [showWalletOptions, setShowWalletOptions] = useState(false);
-  const [owner, setOwner] = useState('');
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
+  const [owner, setOwner] = useState("");
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
   const [tags, setTags] = useState<string[]>([]);
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useState("");
   const [files, setFiles] = useState<FileList>();
   const [minting, setMinting] = useState(false);
-  const [txHash, setTxHash] = useState('');
-  const tagAutocomplete = [ "Artificial Intelligence", "Animal Welfare", "Biorisk", "Climate Change", "Democracy", "Effective Altruism", "Longevity", "Open-source Software", "War", "Web3" ];
+  const [txHash, setTxHash] = useState("");
+  const tagAutocomplete = [
+    "Artificial Intelligence",
+    "Animal Welfare",
+    "Biorisk",
+    "Climate Change",
+    "Democracy",
+    "Effective Altruism",
+    "Longevity",
+    "Open-source Software",
+    "War",
+    "Web3",
+  ];
 
-  const [{ data: networkData, error: errorNetwork, loading: loadingNetwork }, switchNetwork] = useNetwork();
+  const [
+    { data: networkData, error: errorNetwork, loading: loadingNetwork },
+    switchNetwork,
+  ] = useNetwork();
   const [{ data, error, loading: loadingSigner }, getSigner] = useSigner();
   if (networkData?.chain?.name != "Ropsten" && switchNetwork) {
     switchNetwork(3);
@@ -34,7 +57,7 @@ const Minter: NextPage = () => {
     addressOrName: minterAddress,
     contractInterface: minterABI,
     signerOrProvider: data,
-  })
+  });
   const mint = async () => {
     setMinting(true);
     const ipfs_res = await nft_client.store({
@@ -47,7 +70,7 @@ const Minter: NextPage = () => {
     });
     const minted = await minter.safeMint(owner, ipfs_res.url);
     setTxHash(minted.hash);
-  }
+  };
 
   const renderContent = () => {
     return (
@@ -60,26 +83,73 @@ const Minter: NextPage = () => {
                 This minter is in ALPHA. You are minting a test impact
                 certificate on the Ropsten testnet.
               </div>
-              <TextInputField label="Name" required value={name} onChange={({ target }: any) => setName(target.value)} />
+              <TextInputField
+                label="Name"
+                required
+                value={name}
+                onChange={({ target }: any) => setName(target.value)}
+              />
               <TextareaField
                 label="Description"
                 value={description}
                 required
                 rows={4}
                 cols={30}
-                onChange={({ target }: any)=> setDescription(target.value)}
+                onChange={({ target }: any) => setDescription(target.value)}
               />
-              <TextInputField label="Owner Address" required value={owner} onChange={({ target }: any) => setOwner(target.value)} />
-              <FormField label="Tags">
-              <TagInput values={tags} onChange={setTags} autocompleteItems={tagAutocomplete}/>
+              <TextInputField
+                label="Owner Address"
+                required
+                value={owner}
+                onChange={({ target }: any) => setOwner(target.value)}
+              />
+              <FormField className="tag_input" label="Tags">
+                <TagInput
+                  values={tags}
+                  onChange={setTags}
+                  autocompleteItems={tagAutocomplete}
+                />
               </FormField>
-              <TextInputField label="External URL (proof or context)" value={url} onChange={({ target }: any) => setUrl(target.value)}/>
+              <TextInputField
+                label="External URL (proof or context)"
+                value={url}
+                onChange={({ target }: any) => setUrl(target.value)}
+              />
               <FormField label="Image">
-                <FilePicker required name="image" accept="image/png, image/gif, image/jpeg" onChange={setFiles}/>
+                <FilePicker
+                  required
+                  name="image"
+                  accept="image/png, image/gif, image/jpeg"
+                  onChange={setFiles}
+                  className="image_picker"
+                />
               </FormField>
-              <Button disabled={loadingNetwork || loadingSigner || minting} onClick={mint}>Mint</Button>
-              {loadingNetwork || loadingSigner || minting && <Spinner size={50}/>}
-              {txHash && <Alert intent="success" title="Your Impact Cert is being Minted!">View the transaction on <a target="_blank" href={`https://ropsten.etherscan.io/tx/${txHash}`} rel="noreferrer">Etherscan</a> </Alert>}
+              <div className="auction_button_container">
+                <Button
+                  disabled={loadingNetwork || loadingSigner || minting}
+                  onClick={mint}
+                >
+                  Mint
+                </Button>
+              </div>
+              {loadingNetwork ||
+                loadingSigner ||
+                (minting && <Spinner size={50} />)}
+              {txHash && (
+                <Alert
+                  intent="success"
+                  title="Your Impact Cert is being Minted!"
+                >
+                  View the transaction on{" "}
+                  <a
+                    target="_blank"
+                    href={`https://ropsten.etherscan.io/tx/${txHash}`}
+                    rel="noreferrer"
+                  >
+                    Etherscan
+                  </a>{" "}
+                </Alert>
+              )}
             </div>
           </div>
         </div>

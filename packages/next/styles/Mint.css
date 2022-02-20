@@ -11,8 +11,16 @@
   max-width: 800px;
 }
 
+.image_picker{
+  margin-bottom: 35px;
+}
+
 .auction_button_container{
   text-align: center;
+}
+
+.tag_input{
+  margin-bottom: 30px;
 }
 
 .auction_explainer {
