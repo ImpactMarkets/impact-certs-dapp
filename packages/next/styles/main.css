@@ -276,6 +276,28 @@ a:visited {
   align-items: center;
 }
 
+.demo_video {
+  margin: 20px auto 40px auto;
+  width: 95%;
+  max-width: 600px;
+  height: auto;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  -webkit-box-shadow: 0px 9px 12px 6px #3030305b;
+  box-shadow: 0px 9px 12px 6px #3030305b;
+}
+
+.demo_video iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .mint {
   margin-top: 30px;
 }
@@ -487,7 +509,7 @@ a:visited {
     align-items: center;
   }
 
-  .discord_button{
+  .discord_button {
     margin-bottom: 25px;
   }
 }
