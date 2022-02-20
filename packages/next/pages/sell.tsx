@@ -88,13 +88,6 @@ const Auction: NextPage = () => {
           </div>
           <div id="minter_form" className="minter_form">
             <TextInputField
-              label="NFT Address"
-              required
-              value={nft}
-              disabled
-              onChange={({ target }: any) => setNFT(target.value)}
-            />
-            <TextInputField
               label="Token ID"
               required
               type="number"
@@ -108,25 +101,18 @@ const Auction: NextPage = () => {
               onChange={({ target }: any) => setIssuer(target.value)}
             />
             <TextInputField
-              label="Minimum Percent Raise"
+              label="Min % Raise (1000 = 1%)"
               required
               type="number"
               value={minPercentRaise}
               onChange={({ target }: any) => setMinPercentRaise(target.value)}
             />
             <TextInputField
-              label="Previous Owner Profit Share"
+              label="Previous Owner Profit Share (1000 = 1%)"
               required
               type="number"
               value={ownerFee}
               onChange={({ target }: any) => setOwnerFee(target.value)}
-            />
-            <TextInputField
-              label="Auction Token"
-              required
-              value={auctionToken}
-              disabled
-              onChange={({ target }: any) => setAuctionToken(target.value)}
             />
             <TextInputField
               label="Minimum Bid"
