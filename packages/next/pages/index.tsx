@@ -61,8 +61,8 @@ const Home: NextPage = () => {
                   <img src="/telescope.png" alt="telescope" />
                   <div>
                     It&apos;s easy to tell if an action{" "}
-                    <span className="blue">was good</span>. It&apos;s hard to tell if
-                    an action <span className="blue">will be good.</span>
+                    <b>was good</b>. It&apos;s hard to tell if
+                    an action <b>will be good.</b>
                   </div>
                 </div>
                 <div className="explainer_card">

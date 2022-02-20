@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import { Button, MenuDropdown, WalletOptionsModal } from ".";
 import { useAccount } from "wagmi";
 import Link from "next/link";
-
+import { useRouter } from "next/router";
 interface Props {
   children: ReactNode;
   showWalletOptions: boolean;
@@ -73,6 +73,8 @@ export default function Layout(props: Props) {
     );
   };
 
+  const router = useRouter();
+
   return (
     <div>
       <Head>
@@ -89,18 +91,26 @@ export default function Layout(props: Props) {
       <div>
         <div className="flex items-center justify-between p-4">
           <div className="menu flex items-center">
-            <Link href="../">
-              <a>Home</a>
-            </Link>
-            <Link href="/mint">
-              <a>Mint</a>
-            </Link>
-            <Link href="/gallery">
-              <a>Gallery</a>
-            </Link>
-            <Link href="/auction">
-              <a>Auction</a>
-            </Link>
+            <span className={router.pathname == "/" ? "active" : ""}>
+              <Link href="../">
+                <a>Home</a>
+              </Link>
+            </span>
+            <span className={router.pathname == "/mint" ? "active" : ""}>
+              <Link href="/mint">
+                <a>Mint</a>
+              </Link>
+            </span>
+            <span className={router.pathname == "/gallery" ? "active" : ""}>
+              <Link href="/gallery">
+                <a>Gallery</a>
+              </Link>
+            </span>
+            <span className={router.pathname == "/auction" ? "active" : ""}>
+              <Link href="/auction">
+                <a>Auction</a>
+              </Link>
+            </span>
           </div>
           {renderButton()}
         </div>
