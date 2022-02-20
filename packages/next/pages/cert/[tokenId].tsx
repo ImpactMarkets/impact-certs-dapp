@@ -44,8 +44,8 @@ const ImpactCertDetail: NextPage = () => {
     const resp = await fetch(ipfsAddr(ipfs));
     const cert = await resp.json();
     console.log(cert);
-    cert["owner"] = owner;
-    cert["id"] = tokenId;
+    cert.owner = owner;
+    cert.id = parseInt(tokenId as string);
     setCert(cert);
   };
   if (data?.chain?.name == "Ropsten") {
@@ -66,7 +66,7 @@ const ImpactCertDetail: NextPage = () => {
           <div className="detailed_cert_card">
             <div>
               {cert?.id &&
-              approved_list.approved_list.includes(parseInt(cert?.id)) ? (
+              approved_list.approved_list.includes(cert?.id) ? (
                 <div className="approved">👌</div>
               ) : (
                 <div className="approved">🤷‍♂️</div>
