@@ -51,7 +51,7 @@ const ImpactCertDetail: NextPage = () => {
     }
   }
   const ipfsAddr = (ipfs: string) => {
-    return `https://ipfs.io/ipfs/${ipfs.substring(7)}`;
+    return `https://nftstorage.link/ipfs/${ipfs.substring(7)}`;
   };
 
   const renderContent = () => {
