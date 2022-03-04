@@ -14,6 +14,7 @@ import {
   WalletOptionsModal,
 } from "../../components";
 import approved_list from "../../public/approved_cert_list";
+import  { ropstenProvider as provider } from "../../utils/provider";
 
 const auctionAddress = "0x4eCcf02e326D9aE57CaB44FC7c734F6adDbBb2D7";
 const minterAddress = "0x89b93b72f484470f15dd181dbbff0d2b2d5b22f9";
@@ -22,8 +23,6 @@ const ImpactCertDetail: NextPage = () => {
   const router = useRouter();
   const { tokenId } = router.query;
 
-  const provider = useProvider();
-  const [{ data: networkData, error: networkError, loading }, switchNetwork] = useNetwork();
   const contract = useContract({
     addressOrName: minterAddress,
     contractInterface: minterABI,
@@ -42,20 +41,19 @@ const ImpactCertDetail: NextPage = () => {
     cert.owner = owner;
     cert.id = parseInt(tokenId as string);
     setCert(cert);
+    setLoadingNFTs(false);
   };
 
-  if (networkData?.chain?.name == "Ropsten") {
-    if (!loadingNFTs) {
-      fetchCert();
-      setLoadingNFTs(true);
-    }
+  if (!loadingNFTs && !cert) {
+    fetchCert();
+    setLoadingNFTs(true);
   }
   const ipfsAddr = (ipfs: string) => {
     return `https://nftstorage.link/ipfs/${ipfs.substring(7)}`;
   };
 
   const renderContent = () => {
-    if (loading) return <Loader size={8} />;
+    if (loadingNFTs) return <Loader size={8} />;
     return (
       <Fragment>
         <div className="detailed_cert_container">
