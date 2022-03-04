@@ -11,8 +11,8 @@ import { providers } from "ethers";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import { WalletLinkConnector } from "wagmi/connectors/walletLink";
+import { alchemyId } from "utils/constants";
 
-const alchemyId: string = process.env.REACT_APP_ALCHEMY_ID || 'DBSiDF9pY6VRNbhDuSaKrO2-ED2YbK8E';
 const chains = defaultChains;
 
 type Connector =
@@ -40,7 +40,7 @@ const provider = ({ chainId }: { chainId?: number }) => new providers.AlchemyPro
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Provider autoConnect provider={provider} connectors={connectors}>
+    <Provider provider={provider} connectors={connectors}>
       <Component {...pageProps} />
     </Provider>
   );
