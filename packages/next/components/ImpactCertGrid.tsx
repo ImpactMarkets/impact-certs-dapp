@@ -5,6 +5,8 @@ import { Spinner } from "evergreen-ui";
 import { ImpactCertCard } from "../components";
 import approved_list from "../public/approved_cert_list";
 import type ImpactCert from "../types/ImpactCert";
+import  { ropstenProvider as provider } from "../utils/provider";
+
 interface Props {
   children?: string | JSX.Element;
   filter: string;
@@ -17,7 +19,6 @@ const ipfsAddr = (ipfs: string) => {
 };
 
 export default function ImpactCertGrid({ filter, approvedOnly }: Props) {
-  const provider = useProvider();
   const [{ data, error, loading }, switchNetwork] = useNetwork();
   const contract = useContract({
     addressOrName: minterAddress,
@@ -29,7 +30,6 @@ export default function ImpactCertGrid({ filter, approvedOnly }: Props) {
   const [loadingNFTs, setLoadingNFTs] = useState(false);
 
   const fetchNFTs = async () => {
-    console.log(data);
     const totalSupply = await contract.totalSupply();
     setSupply(totalSupply);
     console.log(totalSupply);
@@ -47,11 +47,9 @@ export default function ImpactCertGrid({ filter, approvedOnly }: Props) {
     setNFTs(NFTs);
     setLoadingNFTs(false);
   };
-  if (data?.chain?.name == "Ropsten") {
-    if (!loadingNFTs && NFTs.length == 0) {
-      fetchNFTs();
-      setLoadingNFTs(true);
-    }
+  if (!loadingNFTs && NFTs.length == 0) {
+    fetchNFTs();
+    setLoadingNFTs(true);
   }
   return (
     <Fragment>
