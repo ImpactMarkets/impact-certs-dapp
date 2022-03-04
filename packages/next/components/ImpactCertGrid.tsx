@@ -15,7 +15,7 @@ interface Props {
 
 const minterAddress = "0x89b93b72f484470f15dd181dbbff0d2b2d5b22f9";
 const ipfsAddr = (ipfs: string) => {
-  return `https://ipfs.io/ipfs/${ipfs.substring(7)}`;
+  return `https://nftstorage.link/ipfs/${ipfs.substring(7)}`;
 };
 
 export default function ImpactCertGrid({ filter, approvedOnly }: Props) {

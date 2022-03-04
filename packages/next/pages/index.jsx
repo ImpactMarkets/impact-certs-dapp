@@ -79,6 +79,17 @@ const Home = () => {
             </div>
             <div className="step_back">
               <div className="header">Let&apos;s take a step back</div>
+              <div className="demo_video">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/vvh4mGaDStY"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
               <div className="step_back_details">
                 <p>
                   We want to solve the biggest problems. Climate change, nuclear
