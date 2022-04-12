@@ -1,0 +1,21 @@
+.airtable-embed{
+    width: 95%;
+    max-width: 1600px;
+    margin: 50px auto auto auto;
+}
+
+.airtable_container{
+    margin: 40px 0 0 0;
+}
+
+.airtable-embed2{
+    height: 1400px;
+    width: 95%;
+    max-width: 1200px;
+    margin: 50px auto auto auto;
+
+}
+
+.formHeader{
+    display: none !important;
+}

@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import "../styles/ImpactCertCard.css";
 import "../styles/DetailedCertCard.css";
+import "../styles/Bought.css";
 import "../styles/Menu.css";
 import "../styles/Mint.css";
 import "../styles/main.css";
